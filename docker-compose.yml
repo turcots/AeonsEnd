@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  aeonsend:
+    image: ${DOCKER_REGISTRY-}aeonsend
+    build:
+      context: .\AeonsEnd
+      dockerfile: Dockerfile
