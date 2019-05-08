@@ -23,16 +23,18 @@ namespace AeonsEnd.Controllers
 
         // GET api/Mages http://aeonsend.com/Mages/ObtenirMagesTous
         [HttpGet()]
+        [Route("ObtenirMagesTous/")]
         public List<MageModel> ObtenirMagesTous()
         {
             return new Mage().ObtenirMagesTous();
         }
 
-        // GET api/Mages http://aeonsend.com/Mages/ObtenirMagesTous?versionId=1
-        [HttpGet()]
-        public List<MageModel> ObtenirMagesTous(int versionId)
-        {
-            return new Mage().ObtenirMagesTous(versionId);
-        }
+        //// GET api/Mages http://aeonsend.com/Mages/ObtenirMagesTous?versionId=1
+        //[HttpGet()]
+        //public List<MageModel> ObtenirMagesTous(int versionId)
+        //{
+        //    return new Mage().ObtenirMagesTous(versionId);
+        //}
+
     }
 }

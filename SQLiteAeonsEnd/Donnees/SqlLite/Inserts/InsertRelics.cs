@@ -16,27 +16,41 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
         }
 
         public void Inserts()
-        {   
-            //Version 2
-            Insert(GetModel("Cairn compass", 2, 4));
-            Insert(GetModel("Conclave scroll", 2, 3));
-            Insert(GetModel("Fiend catcher", 2, 3));
-            Insert(GetModel("Mage''s totem", 2, 2));
-            Insert(GetModel("Primordial fetish", 2, 4));
-            Insert(GetModel("Vortex gauntlet", 2, 6));
-            Insert(GetModel("Astral cube", 2, 5));
-            Insert(GetModel("Riddlesphere", 2, 3));
-            Insert(GetModel("Dimensional key", 2, 8));
-            Insert(GetModel("Eternity charm", 2, 3));
+        {
+            //Aeon's End
+            Insert(GetModel("Dague fléchissante", (int)Versions.AeonsEnd, 2)); //Flexing Dagger
+            Insert(GetModel("Bâton d''explosion", (int)Versions.AeonsEnd, 4)); //Blasting Staff
+            Insert(GetModel("Prisme instable", (int)Versions.AeonsEnd, 3)); //Unstable Prism
+            Insert(GetModel("Vortex en bouteille", (int)Versions.AeonsEnd, 3)); //Bottled Vortex
+            Insert(GetModel("Talisman de mage", (int)Versions.AeonsEnd, 5)); //Mage's Talisman
+            Insert(GetModel("Orbe de stabilisation", (int)Versions.AeonsEnd, 4)); //Focusing Orb
 
-            //Version 1
-            Insert(GetModel("Dague fléchissante", 1, 2));
-            Insert(GetModel("Bâton d''explosion", 1, 4));
-            Insert(GetModel("Prisme instable", 1, 3));
-            Insert(GetModel("Vortex en bouteille", 1, 3));
-            Insert(GetModel("Talisman de mage", 1, 5));
-            Insert(GetModel("Orbe de stabilisation", 1, 4));
+            //Aeon's End - War Ethernal
+            Insert(GetModel("Cairn compass", (int)Versions.WarEternal, 4));
+            Insert(GetModel("Conclave scroll", (int)Versions.WarEternal, 3));
+            Insert(GetModel("Fiend catcher", (int)Versions.WarEternal, 3));
+            Insert(GetModel("Mage''s totem", (int)Versions.WarEternal, 2));
+            Insert(GetModel("Primordial fetish", (int)Versions.WarEternal, 4));
+            Insert(GetModel("Vortex gauntlet", (int)Versions.WarEternal, 6));
 
+            //The void
+            Insert(GetModel("Dimensional key", (int)Versions.TheVoid, 8));
+            Insert(GetModel("Eternity charm", (int)Versions.TheVoid, 3));
+
+            //The outer dark
+            Insert(GetModel("Riddlesphere", (int)Versions.TheOuterDark, 3));
+            Insert(GetModel("Astral cube", (int)Versions.TheOuterDark, 5));
+
+            //Aeon's End Legacy
+            Insert(GetModel("Adrenal Batteries", (int)Versions.Legacy, 7));
+            Insert(GetModel("Ethereal Hand", (int)Versions.Legacy, 6));
+            Insert(GetModel("Geophage", (int)Versions.Legacy, 3));
+            Insert(GetModel("Infernal Mirror", (int)Versions.Legacy, 5));
+            Insert(GetModel("Neural Wreath", (int)Versions.Legacy, 4));
+            Insert(GetModel("Prophetic Lens", (int)Versions.Legacy, 4));
+            Insert(GetModel("Reality Stabilizer", (int)Versions.Legacy, 6));
+            Insert(GetModel("Void Mill", (int)Versions.Legacy, 5));
+            Insert(GetModel("Voltaic Relay", (int)Versions.Legacy, 4));
 
             Console.WriteLine("Insert relics rows");
         }

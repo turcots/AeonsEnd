@@ -27,7 +27,7 @@ namespace AeonsEnd.Donnees
             {
                 listMages.Add(new MageModel()
                 {
-                    Id = Convert.ToInt32(reader["id"]),
+                    Id = Convert.ToInt16(reader["id"]),
                     Name = reader["name"].ToString(),
                     VersionId = Convert.ToInt32(reader["versionId"])
                 });

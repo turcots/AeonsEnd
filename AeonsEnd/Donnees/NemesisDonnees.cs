@@ -28,7 +28,7 @@ namespace AeonsEnd.Donnees
             {
                 listNemesis.Add(new NemesisModel()
                 {
-                    Id = Convert.ToInt32(reader["id"]),
+                    Id = Convert.ToInt16(reader["id"]),
                     Name = reader["name"].ToString(),
                     VersionId = Convert.ToInt32(reader["versionId"]),
                     Level = Convert.ToInt32(reader["level"]),

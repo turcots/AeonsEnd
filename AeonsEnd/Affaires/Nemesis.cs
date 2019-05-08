@@ -16,7 +16,7 @@ namespace AeonsEnd.Affaires
             var random = new Random();
             var listeNemesis = new NemesisDonnees().ObtenirNemesis();
             var listeNemesisVersion = listeNemesis
-                .Where(pr => versionId == pr.VersionId).ToList();
+                .Where(pr => versionId == pr.VersionId || versionId == 0).ToList();
 
             if (hasard >= listeNemesisVersion.Count)
                 return listeNemesisVersion;
@@ -50,6 +50,19 @@ namespace AeonsEnd.Affaires
             var listeNemesissVersion = listeNemesiss
                 .Where(pr => versionId == pr.VersionId).ToList();
             return listeNemesissVersion;
+        }
+
+        public List<NemesisModel> ObtenirNemesis()
+        {
+            List<NemesisModel> listModelRandom = new List<NemesisModel>();
+
+            var random = new Random();
+            var listeNemesis = new NemesisDonnees().ObtenirNemesis().ToList();
+
+            int index = random.Next(listeNemesis.Count);
+            listModelRandom.Add(listeNemesis[index]);
+
+            return listModelRandom;
         }
     }
 }

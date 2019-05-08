@@ -21,18 +21,17 @@ namespace AeonsEnd.Affaires
             var random = new Random();
             var listeMages = new MageDonnees().ObtenirMages();
             var listeMagesVersion = listeMages
-                .Where(pr => versionId == pr.VersionId).ToList();
+                .Where(pr => versionId == pr.VersionId || versionId==0).ToList();
 
-            foreach (var MageModel in listeMagesVersion)
+            if (numberRandom >= listeMagesVersion.Count)
+                return listeMagesVersion;
+            while (listModelRandom.Count < numberRandom)
             {
                 int index = random.Next(listeMagesVersion.Count);
 
                 if (!listModelRandom.Contains(listeMagesVersion[index]))
                     listModelRandom.Add(listeMagesVersion[index]);
-                if (listModelRandom.Count == numberRandom)
-                    break;
             }
-
             return listModelRandom;
         }
 

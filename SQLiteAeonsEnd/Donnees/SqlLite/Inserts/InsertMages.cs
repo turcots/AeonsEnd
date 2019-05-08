@@ -18,29 +18,33 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
 
         public void Inserts()
         {
-            //Version 2
-            Insert(GetModel("Sparrow", 2));
-            Insert(GetModel("Garu", 2));
-            Insert(GetModel("Indira", 2));
-            Insert(GetModel("Quilius", 2));
-            Insert(GetModel("Ulgimor", 2));
-            Insert(GetModel("Mazahaedron", 2));
-            Insert(GetModel("Yan magda", 2));
-            Insert(GetModel("Xanos", 2));
-            Insert(GetModel("Mist", 2));
-            Insert(GetModel("Dezmodia", 2));
-            Insert(GetModel("Gex", 2));
-            Insert(GetModel("Remnant", 2));
+            //Aeon's End
+            Insert(GetModel("Kadir", (int)Versions.AeonsEnd));
+            Insert(GetModel("Phaedraxa", (int)Versions.AeonsEnd));
+            Insert(GetModel("Adelheim", (int)Versions.AeonsEnd));
+            Insert(GetModel("Brama", (int)Versions.AeonsEnd));
+            Insert(GetModel("Jian", (int)Versions.AeonsEnd));
+            Insert(GetModel("Mist", (int)Versions.AeonsEnd));
+            Insert(GetModel("Xanos", (int)Versions.AeonsEnd));
+            Insert(GetModel("Lash", (int)Versions.AeonsEnd));
 
-            //Version 1
-            Insert(GetModel("Kadir", 1));
-            Insert(GetModel("Phaedraxa", 1));
-            Insert(GetModel("Adelheim", 1));
-            Insert(GetModel("Brama", 1));
-            Insert(GetModel("Jian", 1));
-            Insert(GetModel("Mist", 1));
-            Insert(GetModel("Xanos", 1));
-            Insert(GetModel("Lash", 1));
+            //Aeon's End - War Ethernal
+            Insert(GetModel("Garu", (int)Versions.WarEternal));
+            Insert(GetModel("Quilius", (int)Versions.WarEternal));
+            Insert(GetModel("Ulgimor", (int)Versions.WarEternal));
+            Insert(GetModel("Mazahaedron", (int)Versions.WarEternal));
+            Insert(GetModel("Yan magda", (int)Versions.WarEternal));
+            Insert(GetModel("Mist", (int)Versions.WarEternal));
+            Insert(GetModel("Dezmodia", (int)Versions.WarEternal));
+            Insert(GetModel("Gex", (int)Versions.WarEternal));
+ 
+            //The void
+            Insert(GetModel("Sparrow", (int)Versions.TheVoid));
+            Insert(GetModel("Xanos", (int)Versions.TheVoid));
+
+            //The outer dark
+            Insert(GetModel("Indira", (int)Versions.TheOuterDark));
+            Insert(GetModel("Remnant", (int)Versions.TheOuterDark));
 
             Console.WriteLine("Insert nemesis rows");
         }

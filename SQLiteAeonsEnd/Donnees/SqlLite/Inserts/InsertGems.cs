@@ -1,4 +1,5 @@
 ﻿
+using SQLiteAeonsEnd.Entity;
 using System;
 using System.Data.SQLite;
 
@@ -17,27 +18,44 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
 
         public void Inserts()
         {
-            //Version 2
-            Insert(GetModel("Bloodstone jewel", 2, 6));
-            Insert(GetModel("Breach ore", 2, 4));
-            Insert(GetModel("Dread diamond", 2, 3));
-            Insert(GetModel("Erratic ingot", 2, 5));
-            Insert(GetModel("Frozen magmite", 2, 3));
-            Insert(GetModel("Scoria slag", 2, 4));
-            Insert(GetModel("Volcanic glass", 2, 3));
-            Insert(GetModel("Alien element", 2, 4));
-            Insert(GetModel("Haunted berylite", 2, 3));
-            Insert(GetModel("Pain stone", 2, 6));
-            Insert(GetModel("Fossilized scarab", 2, 3));
+            //Aeon's End
+            Insert(GetModel("Rubis fulgurant", (int)Versions.AeonsEnd, 4)); //Searing Ruby
+            Insert(GetModel("Ambre de V''risbois", (int)Versions.AeonsEnd, 3)); //V'riswood Amber  
+            Insert(GetModel("Opale brûlante", (int)Versions.AeonsEnd, 5)); //Burning Opal
+            Insert(GetModel("Perle filtrante", (int)Versions.AeonsEnd, 3)); //Sifter's Pearl
+            Insert(GetModel("Saphir nuageux", (int)Versions.AeonsEnd, 6)); //Clouded Sapphire
+            Insert(GetModel("Jade", (int)Versions.AeonsEnd, 2)); //Jade
+            Insert(GetModel("Agrégat de diamants", (int)Versions.AeonsEnd, 3)); //Diamond Cluster
 
-            //Version 1
-            Insert(GetModel("Rubis fulgurant", 1, 4));
-            Insert(GetModel("Ambre de V''risbois", 1, 3));
-            Insert(GetModel("Opale brûlante", 1, 5));
-            Insert(GetModel("Perle filtrante", 1, 3));
-            Insert(GetModel("Saphir nuageux", 1, 6));
-            Insert(GetModel("Jade", 1, 2));
-            Insert(GetModel("Agrégat de diamants", 1, 3));
+            //Aeon's End - War Ethernal
+            Insert(GetModel("Bloodstone jewel", (int)Versions.WarEternal, 6));
+            Insert(GetModel("Breach ore", (int)Versions.WarEternal, 4));
+            Insert(GetModel("Dread diamond", (int)Versions.WarEternal, 3));
+            Insert(GetModel("Erratic ingot", (int)Versions.WarEternal, 5));
+            Insert(GetModel("Frozen magmite", (int)Versions.WarEternal, 3));
+            Insert(GetModel("Scoria slag", (int)Versions.WarEternal, 4));
+            Insert(GetModel("Volcanic glass", (int)Versions.WarEternal, 3));
+ 
+            //The void
+            Insert(GetModel("Fossilized scarab", (int)Versions.TheVoid, 3));
+
+            //The outer dark
+            Insert(GetModel("Pain stone", (int)Versions.TheOuterDark, 6));
+            Insert(GetModel("Haunted berylite", (int)Versions.TheOuterDark, 3));
+            Insert(GetModel("Alien element", (int)Versions.TheOuterDark, 4));
+
+            //Aeon's End Legacy
+            Insert(GetModel("Ancient Cyanolith", (int)Versions.Legacy, 3));
+            Insert(GetModel("Arcing Silicate", (int)Versions.Legacy, 4));
+            Insert(GetModel("Branching Radite", (int)Versions.Legacy, 4));
+            Insert(GetModel("Conductive Grit", (int)Versions.Legacy, 3));
+            Insert(GetModel("Crumbling Compound", (int)Versions.Legacy, 5));
+            Insert(GetModel("Entangled Shard", (int)Versions.Legacy, 4));
+            Insert(GetModel("Fulmite Slab", (int)Versions.Legacy, 6));
+            Insert(GetModel("Gilded Marble", (int)Versions.Legacy, 6));
+            Insert(GetModel("Phased Portalite", (int)Versions.Legacy, 4));
+            Insert(GetModel("Refined Lumenium", (int)Versions.Legacy, 5));
+            Insert(GetModel("Soothing Torporene", (int)Versions.Legacy, 3));
 
             Console.WriteLine("Insert gems rows");
         }

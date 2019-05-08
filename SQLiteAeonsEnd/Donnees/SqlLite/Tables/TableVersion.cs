@@ -20,7 +20,7 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
             _sqlite_cmd.CommandText =
                 @"CREATE TABLE IF NOT EXISTS
                     versions (
-                    id     INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                    id     INTEGER NOT NULL PRIMARY KEY,
                     name    NVARCHAR(25) NULL)";
 
             _sqlite_cmd.ExecuteNonQuery();

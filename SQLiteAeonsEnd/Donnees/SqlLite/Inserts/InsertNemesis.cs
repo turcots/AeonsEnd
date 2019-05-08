@@ -18,21 +18,25 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
 
         public void Inserts()
         {
-            //Version 2
-            Insert(GetModel("Umbra titan", 2, 3, 70));
-            Insert(GetModel("Magus of cloaks", 2, 7, 35));
-            Insert(GetModel("Gate witch", 2, 7, 70));
-            Insert(GetModel("Knight of shackles", 2, 4, 70));
-            Insert(GetModel("Maiden of thorns", 2, 4, 80));
-            Insert(GetModel("Hollow crown", 2, 5, 1));
-            Insert(GetModel("Thrice-dead prophet", 2, 5, 40));
-            Insert(GetModel("Wraithmonger", 2, 6, 70));
+            //Aeon's End
+            Insert(GetModel("Rage incarnée", (int)Versions.AeonsEnd, 2, 70));
+            Insert(GetModel("Reine carapace", (int)Versions.AeonsEnd, 3, 60));
+            Insert(GetModel("Prince des gloutons", (int)Versions.AeonsEnd, 5, 70));
+            Insert(GetModel("Masque tordu", (int)Versions.AeonsEnd, 5, 70));
 
-            //Version 1
-            Insert(GetModel("Rage incarnée", 1, 2, 70));
-            Insert(GetModel("Reine carapace", 1, 3, 60));
-            Insert(GetModel("Prince des gloutons", 1, 5, 70));
-            Insert(GetModel("Masque tordu", 1, 5, 70));
+            //Aeon's End - War Ethernal
+            Insert(GetModel("Umbra titan", (int)Versions.WarEternal, 3, 70));
+            Insert(GetModel("Magus of cloaks", (int)Versions.WarEternal, 7, 35));
+            Insert(GetModel("Gate witch", (int)Versions.WarEternal, 7, 70));           
+            Insert(GetModel("Hollow crown", (int)Versions.WarEternal, 5, 1));
+
+            //The void
+            Insert(GetModel("Knight of shackles", (int)Versions.TheVoid, 4, 70));
+            Insert(GetModel("Maiden of thorns", (int)Versions.TheVoid, 4, 80));
+
+            //The outer dark
+            Insert(GetModel("Wraithmonger", (int)Versions.TheOuterDark, 6, 70));
+            Insert(GetModel("Thrice-dead prophet", (int)Versions.TheOuterDark, 5, 40));
 
 
             Console.WriteLine("Insert nemesis rows");

@@ -68,6 +68,7 @@
     <Compile Include="Affaires\Gems.cs" />
     <Compile Include="Affaires\IGems.cs" />
     <Compile Include="Donnees\SqlLite\Inserts\InsertGems.cs" />
+    <Compile Include="Donnees\SqlLite\Inserts\InsertPartie.cs" />
     <Compile Include="Donnees\SqlLite\Inserts\InsertRelics.cs" />
     <Compile Include="Donnees\SqlLite\Inserts\InsertSorts.cs" />
     <Compile Include="Donnees\SqlLite\Selects\SelectGems.cs" />
@@ -88,8 +89,10 @@
     <Compile Include="Entity\Gems.cs" />
     <Compile Include="Entity\Mages.cs" />
     <Compile Include="Entity\Nemesis.cs" />
+    <Compile Include="Entity\Partie.cs" />
     <Compile Include="Entity\Relics.cs" />
     <Compile Include="Entity\Sorts.cs" />
+    <Compile Include="Entity\Versions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

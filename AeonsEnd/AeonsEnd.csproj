@@ -147,6 +147,7 @@
     <Compile Include="Affaires\ISort.cs" />
     <Compile Include="Affaires\IVersion.cs" />
     <Compile Include="Affaires\Mage.cs" />
+    <Compile Include="Affaires\Marche.cs" />
     <Compile Include="Affaires\Nemesis.cs" />
     <Compile Include="Affaires\Relic.cs" />
     <Compile Include="Affaires\Sort.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\GemsController.cs" />
     <Compile Include="Controllers\MagesController.cs" />
+    <Compile Include="Controllers\MarcheController.cs" />
     <Compile Include="Controllers\NemesisController.cs" />
     <Compile Include="Controllers\RelicsController.cs" />
     <Compile Include="Controllers\SortsController.cs" />
@@ -203,6 +205,7 @@
     </Compile>
     <Compile Include="Models\GemModel.cs" />
     <Compile Include="Models\MageModel.cs" />
+    <Compile Include="Models\MarcheModel.cs" />
     <Compile Include="Models\NemesisModel.cs" />
     <Compile Include="Models\RelicModel.cs" />
     <Compile Include="Models\SortModel.cs" />

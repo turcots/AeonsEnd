@@ -27,7 +27,7 @@ namespace AeonsEnd.Donnees
             {
                 listVersions.Add(new VersionModel()
                 {
-                    Id = Convert.ToInt32(reader["id"]),
+                    Id = Convert.ToInt16(reader["id"]),
                     Nom = reader["name"].ToString()
                 });
             }

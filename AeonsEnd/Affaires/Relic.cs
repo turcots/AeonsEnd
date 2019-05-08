@@ -18,16 +18,17 @@ namespace AeonsEnd.Affaires
             var random = new Random();
             var listeRelics = new RelicDonnees().ObtenirRelics();
             var listeRelicsVersion = listeRelics
-                .Where(pr => versionId == pr.VersionId).ToList();
+                .Where(pr => versionId == pr.VersionId || versionId == 0).ToList();
 
-            foreach (var RelicModel in listeRelicsVersion)
+            if (numberRandom >= listeRelicsVersion.Count)
+                return listeRelicsVersion;
+
+            while (listModelRandom.Count < numberRandom)
             {
                 int index = random.Next(listeRelicsVersion.Count);
 
                 if (!listModelRandom.Contains(listeRelicsVersion[index]))
                     listModelRandom.Add(listeRelicsVersion[index]);
-                if (listModelRandom.Count == numberRandom)
-                    break;
             }
 
             return listModelRandom;

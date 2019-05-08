@@ -26,7 +26,7 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
             new TableRelics(_sqlite_conn, _sqlite_cmd).Create();
             new TableSorts(_sqlite_conn, _sqlite_cmd).Create();
             new TablePartie(_sqlite_conn, _sqlite_cmd).Create();
-            new TablePartieMage(_sqlite_conn, _sqlite_cmd).Create();
+            //new TablePartieMage(_sqlite_conn, _sqlite_cmd).Create();
         }
     }
 }

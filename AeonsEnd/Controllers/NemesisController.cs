@@ -16,16 +16,17 @@ namespace AeonsEnd.Controllers
 
         // GET api/Nemesis http://aeonsend.com/Nemesis/ObtenirNemesisTous
         [HttpGet()]
+        [Route("ObtenirNemesisTous/")]
         public List<NemesisModel> ObtenirNemesisTous()
         {
             return new Nemesis().ObtenirNemesisTous();
         }
 
-        // GET api/Nemesis http://aeonsend.com/Nemesis/ObtenirNemesisTous?versionId=1
-        [HttpGet()]
-        public List<NemesisModel> ObtenirNemesisTous(int versionId)
-        {
-            return new Nemesis().ObtenirNemesisTous(versionId);
-        }
+        //// GET api/Nemesis http://aeonsend.com/Nemesis/ObtenirNemesisTous?versionId=1
+        //[HttpGet()]
+        //public List<NemesisModel> ObtenirNemesisTous(int versionId)
+        //{
+        //    return new Nemesis().ObtenirNemesisTous(versionId);
+        //}
     }
 }

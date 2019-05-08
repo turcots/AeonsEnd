@@ -17,18 +17,18 @@ namespace AeonsEnd.Affaires
             var random = new Random();
             var listeSorts = new SortDonnees().ObtenirSorts();
             var listeSortsVersion = listeSorts
-                .Where(pr => versionId == pr.VersionId).ToList();
+                .Where(pr => versionId == pr.VersionId || versionId == 0).ToList();
 
-            foreach (var SortModel in listeSortsVersion)
+            if (numberRandom >= listeSortsVersion.Count)
+                return listeSortsVersion;
+
+            while (listModelRandom.Count < numberRandom)
             {
                 int index = random.Next(listeSortsVersion.Count);
 
                 if (!listModelRandom.Contains(listeSortsVersion[index]))
                     listModelRandom.Add(listeSortsVersion[index]);
-                if (listModelRandom.Count == numberRandom)
-                    break;
             }
-
             return listModelRandom;
         }
 

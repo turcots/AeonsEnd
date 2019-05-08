@@ -9,5 +9,6 @@ namespace AeonsEnd.Affaires
         NemesisModel ObtenirNemesis(int id);
         List<NemesisModel> ObtenirNemesisTous();
         List<NemesisModel> ObtenirNemesisTous(int versionId);
+        List<NemesisModel> ObtenirNemesis();
     }
 }

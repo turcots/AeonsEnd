@@ -17,16 +17,17 @@ namespace AeonsEnd.Controllers.Versions
 
         // GET api/Version http://aeonsend.com/Version/ObtenirVersionTous
         [HttpGet()]
+        [Route("ObtenirVersionTous/")]
         public List<VersionModel> ObtenirVersionTous()
         {
             return new Version().ObtenirVersionsTous();
         }
 
-        // GET api/Version http://aeonsend.com/Version/ObtenirVersionTous?versionId=1
-        [HttpGet()]
-        public VersionModel ObtenirVersionTous(int id)
-        {
-            return new Version().ObtenirVersions(id);
-        }
+        //// GET api/Version http://aeonsend.com/Version/ObtenirVersionTous?versionId=1
+        //[HttpGet()]
+        //public VersionModel ObtenirVersionTous(int id)
+        //{
+        //    return new Version().ObtenirVersions(id);
+        //}
     }
 }

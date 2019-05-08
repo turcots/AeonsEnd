@@ -13,23 +13,22 @@ namespace AeonsEnd.Affaires
 
         public List<GemModel> ObtenirGems(int numberRandom, int versionId)
         {
-            List<GemModel> listModelRandom = new List<GemModel>();
-
-            var random = new Random();
             var listeGems = new GemDonnees().ObtenirGems();
             var listeGemsVersion = listeGems
-                .Where(pr => versionId == pr.VersionId).ToList();
+                .Where(pr => versionId == pr.VersionId || versionId == 0).ToList();
 
-            foreach (var gemModel in listeGemsVersion)
+            List<GemModel> listModelRandom = new List<GemModel>();
+            var random = new Random();
+
+            if (numberRandom >= listeGemsVersion.Count)
+                return listeGemsVersion;
+            while (listModelRandom.Count < numberRandom)
             {
                 int index = random.Next(listeGemsVersion.Count);
 
                 if (!listModelRandom.Contains(listeGemsVersion[index]))
                     listModelRandom.Add(listeGemsVersion[index]);
-                if (listModelRandom.Count == numberRandom)
-                    break;
             }
-
             return listModelRandom;
         }
 
