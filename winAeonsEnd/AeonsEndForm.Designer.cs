@@ -61,6 +61,7 @@ namespace winAeonsEnd
             this.btnMarket = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabMarket = new System.Windows.Forms.TabPage();
+            this.btnImporterMarket = new System.Windows.Forms.Button();
             this.lstMages = new System.Windows.Forms.ListBox();
             this.tabPartiesJouees = new System.Windows.Forms.TabPage();
             this.txtResultatPartie = new System.Windows.Forms.TextBox();
@@ -143,7 +144,6 @@ namespace winAeonsEnd
             this.label30 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnImporterMarket = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgGems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgSorts)).BeginInit();
@@ -247,7 +247,7 @@ namespace winAeonsEnd
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.HighlightText;
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(604, 20);
+            this.label6.Location = new System.Drawing.Point(679, 30);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 17);
             this.label6.TabIndex = 19;
@@ -518,12 +518,22 @@ namespace winAeonsEnd
             this.tabMarket.Text = "Market";
             this.tabMarket.UseVisualStyleBackColor = true;
             // 
+            // btnImporterMarket
+            // 
+            this.btnImporterMarket.Location = new System.Drawing.Point(517, 118);
+            this.btnImporterMarket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnImporterMarket.Name = "btnImporterMarket";
+            this.btnImporterMarket.Size = new System.Drawing.Size(127, 28);
+            this.btnImporterMarket.TabIndex = 72;
+            this.btnImporterMarket.Text = "Importer market";
+            this.btnImporterMarket.UseVisualStyleBackColor = true;
+            // 
             // lstMages
             // 
             this.lstMages.Enabled = false;
             this.lstMages.FormattingEnabled = true;
             this.lstMages.ItemHeight = 16;
-            this.lstMages.Location = new System.Drawing.Point(359, 20);
+            this.lstMages.Location = new System.Drawing.Point(682, 62);
             this.lstMages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstMages.Name = "lstMages";
             this.lstMages.Size = new System.Drawing.Size(197, 84);
@@ -1363,16 +1373,6 @@ namespace winAeonsEnd
             this.label9.Size = new System.Drawing.Size(133, 17);
             this.label9.TabIndex = 12;
             this.label9.Text = "Numéro de la partie";
-            // 
-            // btnImporterMarket
-            // 
-            this.btnImporterMarket.Location = new System.Drawing.Point(638, 95);
-            this.btnImporterMarket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnImporterMarket.Name = "btnImporterMarket";
-            this.btnImporterMarket.Size = new System.Drawing.Size(127, 28);
-            this.btnImporterMarket.TabIndex = 72;
-            this.btnImporterMarket.Text = "Importer market";
-            this.btnImporterMarket.UseVisualStyleBackColor = true;
             // 
             // AeonsEndForm
             // 
