@@ -351,5 +351,53 @@ namespace winAeonsEnd
 
         }
 
+        private void BtnImporterMarket_Click_1(object sender, EventArgs e)
+        {
+            if (txtNemesis.Text != "")
+                cbNemesis.SelectedIndex = cbNemesis.FindStringExact(txtNemesis.Text);
+
+            for (int i = 0; i < lstMages.Items.Count; i++)
+            {
+                if (i == 0)
+                    cbMage1.SelectedIndex = cbMage1.FindStringExact(((MageModel)lstMages.Items[i]).Name);
+                else if (i == 1)
+                    cbMage2.SelectedIndex = cbMage2.FindStringExact(((MageModel)lstMages.Items[i]).Name);
+                else if (i == 2)
+                    cbMage3.SelectedIndex = cbMage3.FindStringExact(((MageModel)lstMages.Items[i]).Name);
+                else if (i == 3)
+                    cbMage4.SelectedIndex = cbMage4.FindStringExact(((MageModel)lstMages.Items[i]).Name);
+            }
+
+            for (int i = 0; i < dgRelics.RowCount; i++)
+            {      
+                if (i == 0)
+                    cbReplique1.SelectedIndex = cbReplique1.FindStringExact(dgRelics.Rows[i].Cells[1].Value.ToString());
+                else if (i == 1)
+                    cbReplique2.SelectedIndex = cbReplique2.FindStringExact(dgRelics.Rows[i].Cells[1].Value.ToString());
+            }
+
+            for (int i = 0; i < dgGems.RowCount; i++)
+            {
+                if (i == 0)
+                    cbGem1.SelectedIndex = cbGem1.FindStringExact(dgGems.Rows[i].Cells[1].Value.ToString());
+                else if (i == 1)
+                    cbGem2.SelectedIndex = cbGem2.FindStringExact(dgGems.Rows[i].Cells[1].Value.ToString());
+                else if (i == 2)
+                    cbGem3.SelectedIndex = cbGem3.FindStringExact(dgGems.Rows[i].Cells[1].Value.ToString());
+            }
+
+            for (int i = 0; i < dgSorts.RowCount; i++)
+            {
+                if (i == 0)
+                    cbSort1.SelectedIndex = cbSort1.FindStringExact(dgSorts.Rows[i].Cells[1].Value.ToString());
+                else if (i == 1)
+                    cbSort2.SelectedIndex = cbSort2.FindStringExact(dgSorts.Rows[i].Cells[1].Value.ToString());
+                else if (i == 2)
+                    cbSort3.SelectedIndex = cbSort3.FindStringExact(dgSorts.Rows[i].Cells[1].Value.ToString());
+                else if (i == 3)
+                    cbSort4.SelectedIndex = cbSort4.FindStringExact(dgSorts.Rows[i].Cells[1].Value.ToString());
+            }
+
+        }
     }
 }

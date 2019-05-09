@@ -527,6 +527,7 @@ namespace winAeonsEnd
             this.btnImporterMarket.TabIndex = 72;
             this.btnImporterMarket.Text = "Importer market";
             this.btnImporterMarket.UseVisualStyleBackColor = true;
+            this.btnImporterMarket.Click += new System.EventHandler(this.BtnImporterMarket_Click_1);
             // 
             // lstMages
             // 
