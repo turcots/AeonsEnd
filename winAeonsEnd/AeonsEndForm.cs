@@ -142,18 +142,29 @@ namespace winAeonsEnd
                 var listVersions = listeVersions.OrderBy(s => s.Id).ToList();
                 var listVersionsPJ = listeVersions.OrderBy(s => s.Id).ToList();
 
-                listVersions.Insert(0, new VersionModel { Id = 0, Nom = "All" });
-                cbVersions.DisplayMember = "Nom";
-                cbVersions.ValueMember = "Id";
-                cbVersions.DataSource = listVersions;
-                cbVersions.SelectedIndex = 0;
-                cbNbJoueurs.SelectedIndex = 0;
+                //listVersions.Insert(0, new VersionModel { Id = 0, Nom = "All" });
+                //cbVersions.DisplayMember = "Nom";
+                //cbVersions.ValueMember = "Id";
+                //cbVersions.DataSource = listVersions;
+                //cbVersions.SelectedIndex = 0;
+                //cbNbJoueurs.SelectedIndex = 0;
 
-                listVersionsPJ.Insert(0, new VersionModel { Id = 0, Nom = "" });
+                //listVersions.Insert(0, new VersionModel { Id = 0, Nom = "All" });
+                //cbNbJoueursPartie.DisplayMember = "Nom";
+                //cbNbJoueursPartie.ValueMember = "Id";
+                //cbNbJoueursPartie.DataSource = listVersions;
+                //cbNbJoueursPartie.SelectedIndex = 0;
+                //cbNbJoueursPartie.SelectedIndex = 0;
+
+                listVersions.Insert(0, new VersionModel { Id = 0, Nom = "All" });
                 cbVersionPJ.DisplayMember = "Nom";
                 cbVersionPJ.ValueMember = "Id";
-                cbVersionPJ.DataSource = listVersionsPJ; ;
+                cbVersionPJ.DataSource = listVersions;
+                cbVersionPJ.SelectedIndex = 0;
+
             }
+
+            cbNbJoueursPartie.SelectedIndex = 0;
         }
 
         private void InitializeClient()
@@ -173,7 +184,9 @@ namespace winAeonsEnd
             {
                 lblNiveauNemesis.Text = string.Empty;
                 lblVieDepartNemesis.Text = string.Empty;
-            } else {
+            }
+            else
+            {
                 lblNiveauNemesis.Text = selectedModel.Level.ToString();
                 lblVieDepartNemesis.Text = selectedModel.Life.ToString();
             }
@@ -184,14 +197,14 @@ namespace winAeonsEnd
             ComboBox combo = (ComboBox)sender;
             RelicModel selectedModel = (RelicModel)combo.SelectedItem;
 
-            if (selectedModel.Id == 0)
-            {
-                lblR2Cost.Text = string.Empty;
-            }
-            else
-            {
-                lblR2Cost.Text = selectedModel.Cost.ToString();
-            }
+            //if (selectedModel.Id == 0)
+            //{
+            //    lblR2Cost.Text = string.Empty;
+            //}
+            //else
+            //{
+            //    lblR2Cost.Text = selectedModel.Cost.ToString();
+            //}
         }
 
         private void cbReplique1_SelectedIndexChanged(object sender, EventArgs e)
@@ -199,14 +212,14 @@ namespace winAeonsEnd
             ComboBox combo = (ComboBox)sender;
             RelicModel selectedModel = (RelicModel)combo.SelectedItem;
 
-            if (selectedModel.Id == 0)
-            {
-                lblR1Cost.Text = string.Empty;
-            }
-            else
-            {
-                lblR1Cost.Text = selectedModel.Cost.ToString();
-            }
+            //if (selectedModel.Id == 0 || )
+            //{
+            //    lblR1Cost.Text = string.Empty;
+            //}
+            //else
+            //{
+            //    lblR1Cost.Text = selectedModel.Cost.ToString();
+            //}
         }
 
         private List<T> RandomList<T>(List<T> liste, int numberRandom)
@@ -216,6 +229,7 @@ namespace winAeonsEnd
 
             if (numberRandom >= liste.Count)
                 return liste;
+
             while (listeRandom.Count < numberRandom)
             {
                 int index = random.Next(liste.Count);
@@ -233,14 +247,35 @@ namespace winAeonsEnd
 
             if (listeGemsVersion.Any())
             {
-                 var stores = (from x in listeGemsVersion select new { x.VersionName, x.Name, x.Cost }).ToList();
-                dgGems.DataSource = stores;
-                dgGems.ClearSelection();
+                if (listeGemsVersion.Count == 1)
+                {
+                    cbGem1.SelectedIndex = cbGem1.FindStringExact(listeGemsVersion[0].Name);
+                    cbGem2.SelectedIndex = -1;
+                    cbGem3.SelectedIndex = -1;
+                }
+                else if (listeGemsVersion.Count == 2)
+                {
+                    cbGem1.SelectedIndex = cbGem1.FindStringExact(listeGemsVersion[0].Name);
+                    cbGem2.SelectedIndex = cbGem2.FindStringExact(listeGemsVersion[1].Name);
+                    cbGem3.SelectedIndex = -1;
+                }
+                else if (listeGemsVersion.Count == 3)
+                {
+                    cbGem1.SelectedIndex = cbGem1.FindStringExact(listeGemsVersion[0].Name);
+                    cbGem2.SelectedIndex = cbGem2.FindStringExact(listeGemsVersion[1].Name);
+                    cbGem3.SelectedIndex = cbGem3.FindStringExact(listeGemsVersion[2].Name);
+                }
+                // var stores = (from x in listeGemsVersion select new { x.VersionName, x.Name, x.Cost }).ToList();
+                //dgGems.DataSource = stores;
+                //dgGems.ClearSelection();
             }
             else
             {
-                var stores = (from x in new List<GemModel>() select new { x.VersionName, x.Name, x.Cost }).ToList();
-                dgGems.DataSource = stores;
+                cbGem1.SelectedIndex = -1;
+                cbGem2.SelectedIndex = -1;
+                cbGem3.SelectedIndex = -1;
+                //var stores = (from x in new List<GemModel>() select new { x.VersionName, x.Name, x.Cost }).ToList();
+                //dgGems.DataSource = stores;
             }
         }
 
@@ -251,14 +286,27 @@ namespace winAeonsEnd
 
             if (listeRelicsVersion.Any())
             {
-                var stores = (from x in listeRelicsVersion select new { x.VersionName, x.Name, x.Cost }).ToList();
-                dgRelics.DataSource = stores;
-                dgRelics.ClearSelection();
+                if (listeRelicsVersion.Count == 1)
+                {
+                    cbReplique1.SelectedIndex = cbReplique1.FindStringExact(listeRelicsVersion[0].Name);
+                    cbReplique2.SelectedIndex = -1;
+                }
+                else if (listeRelicsVersion.Count == 2)
+                {
+                    cbReplique1.SelectedIndex = cbReplique1.FindStringExact(listeRelicsVersion[0].Name);
+                    cbReplique2.SelectedIndex = cbReplique2.FindStringExact(listeRelicsVersion[1].Name);
+                }
+
+                //var stores = (from x in listeRelicsVersion select new { x.VersionName, x.Name, x.Cost }).ToList();
+                //dgRelics.DataSource = stores;
+                //dgRelics.ClearSelection();
             }
             else
             {
-                var stores = (from x in new List<RelicModel>() select new { x.VersionName, x.Name, x.Cost }).ToList();
-                dgRelics.DataSource = stores;
+                cbReplique1.SelectedIndex = -1;
+                cbReplique2.SelectedIndex = -1;
+                //var stores = (from x in new List<RelicModel>() select new { x.VersionName, x.Name, x.Cost }).ToList();
+                //dgRelics.DataSource = stores;
             }
         }
 
@@ -269,14 +317,46 @@ namespace winAeonsEnd
 
             if (listeSortsVersion.Any())
             {
-                var stores = (from x in listeSortsVersion select new { x.VersionName, x.Name, x.Cost }).ToList();
-                dgSorts.DataSource = stores;
-                dgSorts.ClearSelection();
+                if (listeSortsVersion.Count == 1)
+                {
+                    cbSort1.SelectedIndex = cbSort1.FindStringExact(listeSortsVersion[0].Name);
+                    cbSort2.SelectedIndex = -1;
+                    cbSort3.SelectedIndex = -1;
+                    cbSort4.SelectedIndex = -1;
+                }
+                else if (listeSortsVersion.Count == 2)
+                {
+                    cbSort1.SelectedIndex = cbSort1.FindStringExact(listeSortsVersion[0].Name);
+                    cbSort2.SelectedIndex = cbSort2.FindStringExact(listeSortsVersion[1].Name);
+                    cbSort3.SelectedIndex = -1;
+                    cbSort4.SelectedIndex = -1;
+                }
+                else if (listeSortsVersion.Count == 3)
+                {
+                    cbSort1.SelectedIndex = cbSort1.FindStringExact(listeSortsVersion[0].Name);
+                    cbSort2.SelectedIndex = cbSort3.FindStringExact(listeSortsVersion[1].Name);
+                    cbSort3.SelectedIndex = cbSort3.FindStringExact(listeSortsVersion[2].Name);
+                    cbSort4.SelectedIndex = -1;
+                }
+                else if (listeSortsVersion.Count == 4)
+                {
+                    cbSort1.SelectedIndex = cbSort1.FindStringExact(listeSortsVersion[0].Name);
+                    cbSort2.SelectedIndex = cbSort3.FindStringExact(listeSortsVersion[1].Name);
+                    cbSort3.SelectedIndex = cbSort3.FindStringExact(listeSortsVersion[2].Name);
+                    cbSort4.SelectedIndex = cbSort4.FindStringExact(listeSortsVersion[3].Name);
+                }
+                //var stores = (from x in listeSortsVersion select new { x.VersionName, x.Name, x.Cost }).ToList();
+                //dgSorts.DataSource = stores;
+                //dgSorts.ClearSelection();
             }
             else
             {
-                var stores = (from x in new List<SortModel>() select new { x.VersionName, x.Name, x.Cost }).ToList();
-                dgSorts.DataSource = stores;
+                cbSort1.SelectedIndex = -1;
+                cbSort2.SelectedIndex = -1;
+                cbSort3.SelectedIndex = -1;
+                cbSort4.SelectedIndex = -1;
+                //var stores = (from x in new List<SortModel>() select new { x.VersionName, x.Name, x.Cost }).ToList();
+                //dgSorts.DataSource = stores;
             }
         }
 
@@ -287,13 +367,48 @@ namespace winAeonsEnd
 
             if (listeMagesVersion.Any())
             {
-                lstMages.DisplayMember = "Name";
-                lstMages.ValueMember = "Id";
-                lstMages.DataSource = listeMagesVersion;
-                lstMages.SelectedIndex = -1;
+                //lstMages.DisplayMember = "Name";
+                //lstMages.ValueMember = "Id";
+                //lstMages.DataSource = listeMagesVersion;
+                //lstMages.SelectedIndex = -1;
+                if (listeMagesVersion.Count == 1)
+                {
+                    cbMage1.SelectedIndex = cbMage1.FindStringExact(listeMagesVersion[0].Name);
+                    cbMage2.SelectedIndex = -1;
+                    cbMage3.SelectedIndex = -1;
+                    cbMage4.SelectedIndex = -1;
+                }
+                else if (listeMagesVersion.Count == 2)
+                {
+                    cbMage1.SelectedIndex = cbMage1.FindStringExact(listeMagesVersion[0].Name);
+                    cbMage2.SelectedIndex = cbMage2.FindStringExact(listeMagesVersion[1].Name);
+                    cbMage3.SelectedIndex = -1;
+                    cbMage4.SelectedIndex = -1;
+                }
+                else if (listeMagesVersion.Count == 3)
+                {
+                    cbMage1.SelectedIndex = cbMage1.FindStringExact(listeMagesVersion[0].Name);
+                    cbMage2.SelectedIndex = cbMage2.FindStringExact(listeMagesVersion[1].Name);
+                    cbMage3.SelectedIndex = cbMage3.FindStringExact(listeMagesVersion[2].Name);
+                    cbMage4.SelectedIndex = -1;
+                }
+                else if (listeMagesVersion.Count == 4)
+                {
+                    cbMage1.SelectedIndex = cbMage1.FindStringExact(listeMagesVersion[0].Name);
+                    cbMage2.SelectedIndex = cbMage2.FindStringExact(listeMagesVersion[1].Name);
+                    cbMage3.SelectedIndex = cbMage3.FindStringExact(listeMagesVersion[2].Name);
+                    cbMage4.SelectedIndex = cbMage4.FindStringExact(listeMagesVersion[3].Name);
+                }
+                //cbMage1
             }
             else
-                lstMages.DataSource = null;
+            {
+                cbMage1.SelectedIndex = -1;
+                cbMage2.SelectedIndex = -1;
+                cbMage3.SelectedIndex = -1;
+                cbMage4.SelectedIndex = -1;
+                //lstMages.DataSource = null;
+            }
         }
 
         private void LoadNemesis(int versionId)
@@ -302,9 +417,9 @@ namespace winAeonsEnd
             listeNemesisVersion = RandomList(listeNemesisVersion, 1);
 
             if (listeNemesisVersion.Any())
-                txtNemesis.Text = listeNemesisVersion.FirstOrDefault().Name;
+                cbNemesis.SelectedIndex = cbNemesis.FindStringExact(listeNemesisVersion[0].Name);
             else
-                txtNemesis.Text = "";
+                cbNemesis.SelectedIndex = -1;
         }
 
         private void LoadMarket(int nbJoueur, int versionId)
@@ -318,12 +433,12 @@ namespace winAeonsEnd
 
         private void BtnMarket_Click(object sender, EventArgs e)
         {
-            int nbVersion = 0;
-            string valeur = Convert.ToString(cbVersions.SelectedValue);
+            //int nbVersion = 0;
+            //string valeur = Convert.ToString(cbVersions.SelectedValue);
 
-            int.TryParse(valeur, out nbVersion);
+            //int.TryParse(valeur, out nbVersion);
 
-            LoadMarket(int.Parse(cbNbJoueurs.Text), nbVersion);
+            //LoadMarket(int.Parse(cbNbJoueurs.Text), nbVersion);
         }
 
         private void bntChargerPartie_Click(object sender, EventArgs e)
@@ -333,7 +448,15 @@ namespace winAeonsEnd
 
         private void btnNouvellePartie_Click(object sender, EventArgs e)
         {
-
+            txtNemesisVie.Text = "";
+            txtNbCycle.Text = "";
+            txtGraveHoldVie.Text = "";
+            txtVieMage1.Text = "";
+            txtVieMage2.Text = "";
+            txtVieMage3.Text = "";
+            txtVieMage4.Text = "";
+            txtCommentaire.Text = "";
+            cbResultatPartie.SelectedIndex = -1;
         }
 
         private void btnImporterMarket_Click(object sender, EventArgs e)
@@ -353,51 +476,117 @@ namespace winAeonsEnd
 
         private void BtnImporterMarket_Click_1(object sender, EventArgs e)
         {
-            if (txtNemesis.Text != "")
-                cbNemesis.SelectedIndex = cbNemesis.FindStringExact(txtNemesis.Text);
+            //if (txtNemesis.Text != "")
+            //    cbNemesis.SelectedIndex = cbNemesis.FindStringExact(txtNemesis.Text);
 
-            for (int i = 0; i < lstMages.Items.Count; i++)
+            //for (int i = 0; i < lstMages.Items.Count; i++)
+            //{
+            //    if (i == 0)
+            //        cbMage1.SelectedIndex = cbMage1.FindStringExact(((MageModel)lstMages.Items[i]).Name);
+            //    else if (i == 1)
+            //        cbMage2.SelectedIndex = cbMage2.FindStringExact(((MageModel)lstMages.Items[i]).Name);
+            //    else if (i == 2)
+            //        cbMage3.SelectedIndex = cbMage3.FindStringExact(((MageModel)lstMages.Items[i]).Name);
+            //    else if (i == 3)
+            //        cbMage4.SelectedIndex = cbMage4.FindStringExact(((MageModel)lstMages.Items[i]).Name);
+            //}
+
+            //for (int i = 0; i < dgRelics.RowCount; i++)
+            //{      
+            //    if (i == 0)
+            //        cbReplique1.SelectedIndex = cbReplique1.FindStringExact(dgRelics.Rows[i].Cells[1].Value.ToString());
+            //    else if (i == 1)
+            //        cbReplique2.SelectedIndex = cbReplique2.FindStringExact(dgRelics.Rows[i].Cells[1].Value.ToString());
+            //}
+
+            //for (int i = 0; i < dgGems.RowCount; i++)
+            //{
+            //    if (i == 0)
+            //        cbGem1.SelectedIndex = cbGem1.FindStringExact(dgGems.Rows[i].Cells[1].Value.ToString());
+            //    else if (i == 1)
+            //        cbGem2.SelectedIndex = cbGem2.FindStringExact(dgGems.Rows[i].Cells[1].Value.ToString());
+            //    else if (i == 2)
+            //        cbGem3.SelectedIndex = cbGem3.FindStringExact(dgGems.Rows[i].Cells[1].Value.ToString());
+            //}
+
+            //for (int i = 0; i < dgSorts.RowCount; i++)
+            //{
+            //    if (i == 0)
+            //        cbSort1.SelectedIndex = cbSort1.FindStringExact(dgSorts.Rows[i].Cells[1].Value.ToString());
+            //    else if (i == 1)
+            //        cbSort2.SelectedIndex = cbSort2.FindStringExact(dgSorts.Rows[i].Cells[1].Value.ToString());
+            //    else if (i == 2)
+            //        cbSort3.SelectedIndex = cbSort3.FindStringExact(dgSorts.Rows[i].Cells[1].Value.ToString());
+            //    else if (i == 3)
+            //        cbSort4.SelectedIndex = cbSort4.FindStringExact(dgSorts.Rows[i].Cells[1].Value.ToString());
+            //}
+
+        }
+
+        private void BntHasard_Click(object sender, EventArgs e)
+        {
+            int nbVersion = 0;
+            string valeur = Convert.ToString(cbVersionPJ.SelectedValue);
+
+            int.TryParse(valeur, out nbVersion);
+
+            if (cbNbJoueursPartie.Text != "")
+                LoadMarket(int.Parse(cbNbJoueursPartie.Text), nbVersion);
+        }
+
+
+        private void CbMage1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
             {
-                if (i == 0)
-                    cbMage1.SelectedIndex = cbMage1.FindStringExact(((MageModel)lstMages.Items[i]).Name);
-                else if (i == 1)
-                    cbMage2.SelectedIndex = cbMage2.FindStringExact(((MageModel)lstMages.Items[i]).Name);
-                else if (i == 2)
-                    cbMage3.SelectedIndex = cbMage3.FindStringExact(((MageModel)lstMages.Items[i]).Name);
-                else if (i == 3)
-                    cbMage4.SelectedIndex = cbMage4.FindStringExact(((MageModel)lstMages.Items[i]).Name);
+                
+                PopUpForm();
             }
 
-            for (int i = 0; i < dgRelics.RowCount; i++)
-            {      
-                if (i == 0)
-                    cbReplique1.SelectedIndex = cbReplique1.FindStringExact(dgRelics.Rows[i].Cells[1].Value.ToString());
-                else if (i == 1)
-                    cbReplique2.SelectedIndex = cbReplique2.FindStringExact(dgRelics.Rows[i].Cells[1].Value.ToString());
-            }
 
-            for (int i = 0; i < dgGems.RowCount; i++)
+        }
+
+        private void CbMage1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CbMage1_KeyDown(object sender, KeyEventArgs e)
+        {
+            PopUpForm();
+            //if (e.KeyCode == Keys.Delete && CbMage1.DroppedDown)
+            //{
+            //    //Remove the listitem from the combobox list
+            //    CbMage1.Items.RemoveAt(CbMage1.SelectedIndex);
+
+            //    //Make sure no other processing happens, ex: deleting text from combobox
+            //    e.Handled = true;
+            //}
+            //else if (e.KeyCode == Keys.Down && !CbMage1.DroppedDown)
+            //{
+            //    //If the down arrow is pressed show the dropdown list from the combobox
+            //    CbMage1.DroppedDown = true;
+            //}
+        }
+
+        private void PopUpForm()
+        {
+            PopupForm popup = new PopupForm();
+            DialogResult dialogresult = popup.ShowDialog();
+            if (dialogresult == DialogResult.OK)
             {
-                if (i == 0)
-                    cbGem1.SelectedIndex = cbGem1.FindStringExact(dgGems.Rows[i].Cells[1].Value.ToString());
-                else if (i == 1)
-                    cbGem2.SelectedIndex = cbGem2.FindStringExact(dgGems.Rows[i].Cells[1].Value.ToString());
-                else if (i == 2)
-                    cbGem3.SelectedIndex = cbGem3.FindStringExact(dgGems.Rows[i].Cells[1].Value.ToString());
+                Console.WriteLine("You clicked OK");
             }
-
-            for (int i = 0; i < dgSorts.RowCount; i++)
+            else if (dialogresult == DialogResult.Cancel)
             {
-                if (i == 0)
-                    cbSort1.SelectedIndex = cbSort1.FindStringExact(dgSorts.Rows[i].Cells[1].Value.ToString());
-                else if (i == 1)
-                    cbSort2.SelectedIndex = cbSort2.FindStringExact(dgSorts.Rows[i].Cells[1].Value.ToString());
-                else if (i == 2)
-                    cbSort3.SelectedIndex = cbSort3.FindStringExact(dgSorts.Rows[i].Cells[1].Value.ToString());
-                else if (i == 3)
-                    cbSort4.SelectedIndex = cbSort4.FindStringExact(dgSorts.Rows[i].Cells[1].Value.ToString());
+                Console.WriteLine("You clicked either Cancel or X button in the top right corner");
             }
+            popup.Dispose();
+        }
 
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            PopUpForm();
         }
     }
 }

@@ -64,10 +64,19 @@
     <Compile Include="Affaires\Marche.cs" />
     <Compile Include="Affaires\Nemesis.cs" />
     <Compile Include="Affaires\Versions.cs" />
+    <Compile Include="PopupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopupForm.Designer.cs">
+      <DependentUpon>PopupForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AeonsEndForm.resx">
       <DependentUpon>AeonsEndForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopupForm.resx">
+      <DependentUpon>PopupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -100,6 +109,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\iconeCarte.png" />
     <Content Include="Images\radom_des.jpg" />
     <Content Include="Images\reload.png" />
     <None Include="Resources\radom_des.jpg" />

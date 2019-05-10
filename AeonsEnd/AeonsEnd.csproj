@@ -197,6 +197,7 @@
     <Compile Include="Donnees\IDatabase.cs" />
     <Compile Include="Donnees\MageDonnees.cs" />
     <Compile Include="Donnees\NemesisDonnees.cs" />
+    <Compile Include="Donnees\PartieDonnees.cs" />
     <Compile Include="Donnees\RelicDonnees.cs" />
     <Compile Include="Donnees\SortDonnees.cs" />
     <Compile Include="Donnees\VersionDonnees.cs" />
@@ -207,6 +208,7 @@
     <Compile Include="Models\MageModel.cs" />
     <Compile Include="Models\MarcheModel.cs" />
     <Compile Include="Models\NemesisModel.cs" />
+    <Compile Include="Models\PartieModel.cs" />
     <Compile Include="Models\RelicModel.cs" />
     <Compile Include="Models\SortModel.cs" />
     <Compile Include="Models\VersionModel.cs" />
