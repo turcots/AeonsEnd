@@ -1,4 +1,5 @@
-﻿using AeonsEnd.Models;
+﻿using AeonsEnd.Affaires;
+using AeonsEnd.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -32,9 +33,25 @@ namespace winAeonsEnd
             LoadRelicsAsync(marche.ListeRelics);
             LoadGemsAsync(marche.ListeGems);
             LoadSortsAsync(marche.ListeSorts);
+
+            LoadParties();
         }
 
-        private void LoadSortsAsync(List<SortModel> listeSorts)
+        private void LoadParties()
+        {
+            cbPartie.DisplayMember = "partieName";
+            cbPartie.ValueMember = "partieId";
+            cbPartie.DataSource = ObtenirParties();
+        }
+
+        private List<PartieModel> ObtenirParties()
+        {
+            var parties = new Partie().ObtenirPartieTous();
+
+            return parties;
+        }
+
+    private void LoadSortsAsync(List<SortModel> listeSorts)
         {
             if (listeSorts != null)
             {
@@ -177,19 +194,19 @@ namespace winAeonsEnd
 
         private void cbNemesis_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ComboBox combo = (ComboBox)sender;
-            NemesisModel selectedModel = (NemesisModel)combo.SelectedItem;
+            //ComboBox combo = (ComboBox)sender;
+            //NemesisModel selectedModel = (NemesisModel)combo.SelectedItem;
 
-            if (selectedModel.Id == 0)
-            {
-                lblNiveauNemesis.Text = string.Empty;
-                lblVieDepartNemesis.Text = string.Empty;
-            }
-            else
-            {
-                lblNiveauNemesis.Text = selectedModel.Level.ToString();
-                lblVieDepartNemesis.Text = selectedModel.Life.ToString();
-            }
+            //if (selectedModel.Id == 0)
+            //{
+            //    lblNiveauNemesis.Text = string.Empty;
+            //    lblVieDepartNemesis.Text = string.Empty;
+            //}
+            //else
+            //{
+            //    lblNiveauNemesis.Text = selectedModel.Level.ToString();
+            //    lblVieDepartNemesis.Text = selectedModel.Life.ToString();
+            //}
         }
 
         private void cbReplique2_SelectedIndexChanged(object sender, EventArgs e)
@@ -443,11 +460,16 @@ namespace winAeonsEnd
 
         private void bntChargerPartie_Click(object sender, EventArgs e)
         {
+            int partieId = int.Parse(cbPartie.SelectedValue.ToString());
 
+            PartieModel partie = ObtenirParties().Where(x => x.partieId == partieId).FirstOrDefault();
+
+            ChargerPartie(partie);
         }
 
         private void btnNouvellePartie_Click(object sender, EventArgs e)
         {
+            txtNomPartie.Text = "";
             txtNemesisVie.Text = "";
             txtNbCycle.Text = "";
             txtGraveHoldVie.Text = "";
@@ -466,12 +488,147 @@ namespace winAeonsEnd
 
         private void btnSupprimerPartie_Click(object sender, EventArgs e)
         {
-
+            var messageErreur = new Partie().Delete(int.Parse(cbPartie.SelectedValue.ToString()));
+            LoadParties();
+            MessageBox.Show(messageErreur);
         }
 
         private void btnSauverPartie_Click(object sender, EventArgs e)
         {
+            string messageErreur = "Partie sauvegardée";
+            try
+            {
+                var partie = RecupererPartie();
+                new Partie().Insert(partie);
+                LoadParties();
+            }
+            catch (Exception ex)
+            {
+                messageErreur = ex.Message;
+            }
 
+            //var partie = RecupererPartie();
+            //var messageErreur = new Partie().Insert(partie);
+            //LoadParties();
+            MessageBox.Show(messageErreur, "Message");
+        }
+
+        private void ChargerPartie(PartieModel partie)
+        {
+            txtNomPartie.Text = partie.partieName;
+            cbVersionPJ.SelectedValue = partie.versionId;
+            cbNemesis.SelectedValue = partie.nemesisId;
+            txtNemesisVie.Text = partie.nemesisVie.ToString();
+            cbMage1.SelectedValue = partie.mageId1;
+            txtVieMage1.Text = partie.mageVie1.ToString();
+            cbMage2.SelectedValue = partie.mageId2;
+            txtVieMage2.Text = partie.mageVie2.ToString();
+            cbMage3.SelectedValue = partie.mageId3;
+            txtVieMage3.Text = partie.mageVie3.ToString();
+            cbMage4.SelectedValue = partie.mageId4;
+            txtVieMage4.Text = partie.mageVie4.ToString();
+            cbReplique1.SelectedValue = partie.repliqueId1;
+            cbReplique2.SelectedValue = partie.repliqueId2;
+            cbGem1.SelectedValue = partie.gemId1;
+            cbGem2.SelectedValue = partie.gemId2;
+            cbGem3.SelectedValue = partie.gemId3;
+            cbSort1.SelectedValue = partie.sortId1;
+            cbSort2.SelectedValue = partie.sortId2;
+            cbSort3.SelectedValue = partie.sortId3;
+            cbSort4.SelectedValue = partie.sortId4;
+            cbResultatPartie.SelectedItem = (partie.partieGagne) ? "Gagné" : "Perdu";
+            txtNbCycle.Text = partie.nbCycle.ToString();
+            txtGraveHoldVie.Text = partie.graveholdVie.ToString();
+            txtCommentaire.Text = partie.commentaire;
+        }
+
+        private void ValidationChampsPartie()
+        {
+            var result = 0;
+
+            if (txtNomPartie.Text == "")
+                throw new Exception("Nom de partie invalide");
+            if (!int.TryParse(cbVersionPJ.SelectedValue.ToString(), out result))
+                throw new Exception("Nom de la version invalide");
+            if (!int.TryParse(cbNemesis.SelectedValue.ToString(), out result) || cbNemesis.SelectedValue.ToString() == "0")
+                throw new Exception("Nom du nemesis invalide");
+            if (!int.TryParse(txtNemesisVie.Text, out result))
+                throw new Exception("Vie du nemesis invalide");
+            if (int.Parse(cbNbJoueursPartie.Text) == 1 && cbMage1.SelectedValue.ToString() == "0")
+                throw new Exception("Mage 1 invalide");
+            if (int.Parse(cbNbJoueursPartie.Text) == 2 && (cbMage1.SelectedValue.ToString() == "0" || cbMage2.SelectedValue.ToString() == "0"))
+                throw new Exception("Mage 1 ou 2 invalide");
+            if (int.Parse(cbNbJoueursPartie.Text) == 3 && (cbMage1.SelectedValue.ToString() == "0" || cbMage2.SelectedValue.ToString() == "0" || cbMage3.SelectedValue.ToString() == "0"))
+                throw new Exception("Mage 1 ou 2 ou 3 invalide");
+            if (int.Parse(cbNbJoueursPartie.Text) == 4 && (cbMage1.SelectedValue.ToString() == "0" || cbMage2.SelectedValue.ToString() == "0" || cbMage3.SelectedValue.ToString() == "0" || cbMage4.SelectedValue.ToString() == "0"))
+                throw new Exception("Mage 1 ou 2 ou 3 ou 4 invalide");
+            if (!int.TryParse(cbReplique1.SelectedValue.ToString(), out result) || cbReplique1.SelectedValue.ToString() == "0")
+                throw new Exception("Replique 1 invalide");
+            if (!int.TryParse(cbReplique2.SelectedValue.ToString(), out result) || cbReplique2.SelectedValue.ToString() == "0")
+                throw new Exception("Replique 2 invalide");
+            if (!int.TryParse(cbGem1.SelectedValue.ToString(), out result) || cbGem1.SelectedValue.ToString() == "0")
+                throw new Exception("Gem 1 invalide");
+            if (!int.TryParse(cbGem2.SelectedValue.ToString(), out result) || cbGem2.SelectedValue.ToString() == "0")
+                throw new Exception("Gem 2 invalide");
+            if (!int.TryParse(cbGem3.SelectedValue.ToString(), out result) || cbGem3.SelectedValue.ToString() == "0")
+                throw new Exception("Gem 3 invalide");
+            if (!int.TryParse(cbSort1.SelectedValue.ToString(), out result) || cbSort1.SelectedValue.ToString() == "0")
+                throw new Exception("Sort 1 invalide");
+            if (!int.TryParse(cbSort2.SelectedValue.ToString(), out result) || cbSort2.SelectedValue.ToString() == "0")
+                throw new Exception("Sort 2 invalide");
+            if (!int.TryParse(cbSort3.SelectedValue.ToString(), out result) || cbSort3.SelectedValue.ToString() == "0")
+                throw new Exception("Sort 3 invalide");
+            if (!int.TryParse(cbSort4.SelectedValue.ToString(), out result) || cbSort4.SelectedValue.ToString() == "0")
+                throw new Exception("Sort 4 invalide");
+            if (!int.TryParse(txtVieMage1.Text, out result))
+                throw new Exception("Vie du mage 1 invalide");
+            if (!int.TryParse(txtVieMage2.Text, out result))
+                throw new Exception("Vie du mage 2 invalide");
+            if (!int.TryParse(txtVieMage3.Text, out result))
+                throw new Exception("Vie du mage 3 invalide");
+            if (!int.TryParse(txtVieMage4.Text, out result))
+                throw new Exception("Vie du mage 4 invalide");
+            if (!int.TryParse(txtNbCycle.Text, out result))
+                throw new Exception("Nombre de cycle invalide");
+            if (!int.TryParse(txtGraveHoldVie.Text, out result))
+                throw new Exception("Vie de gravehold invalide");
+            if (cbResultatPartie.SelectedItem == null)
+                throw new Exception("Résultat de la partie invalide");
+            
+        }
+        private PartieModel RecupererPartie()
+        {
+            ValidationChampsPartie();
+
+            var partieModel = new PartieModel();
+
+            partieModel.partieName = txtNomPartie.Text;
+            partieModel.versionId = int.Parse(cbVersionPJ.SelectedValue.ToString());
+            partieModel.nemesisId = int.Parse(cbNemesis.SelectedValue.ToString());
+            partieModel.nemesisVie = int.Parse(txtNemesisVie.Text);
+            partieModel.mageId1 = cbMage1.SelectedValue == null ? 0 : int.Parse(cbMage1.SelectedValue.ToString());
+            partieModel.mageVie1 = int.Parse(txtVieMage1.Text);
+            partieModel.mageId2 = cbMage2.SelectedValue == null ? 0 : int.Parse(cbMage2.SelectedValue.ToString());
+            partieModel.mageVie2 = int.Parse(txtVieMage2.Text);
+            partieModel.mageId3 = cbMage3.SelectedValue == null ? 0 : int.Parse(cbMage3.SelectedValue.ToString());
+            partieModel.mageVie3 = int.Parse(txtVieMage3.Text);
+            partieModel.mageId4 = cbMage4.SelectedValue == null ? 0 : int.Parse(cbMage4.SelectedValue.ToString());
+            partieModel.mageVie4 = int.Parse(txtVieMage4.Text);
+            partieModel.repliqueId1 = int.Parse(cbReplique1.SelectedValue.ToString());
+            partieModel.repliqueId2 = int.Parse(cbReplique2.SelectedValue.ToString());
+            partieModel.gemId1 = int.Parse(cbGem1.SelectedValue.ToString());
+            partieModel.gemId2 = int.Parse(cbGem2.SelectedValue.ToString());
+            partieModel.gemId3 = int.Parse(cbGem3.SelectedValue.ToString());
+            partieModel.sortId1 = int.Parse(cbSort1.SelectedValue.ToString());
+            partieModel.sortId2 = int.Parse(cbSort2.SelectedValue.ToString());
+            partieModel.sortId3 = int.Parse(cbSort3.SelectedValue.ToString());
+            partieModel.sortId4 = int.Parse(cbSort4.SelectedValue.ToString());
+            partieModel.partieGagne = (cbResultatPartie.SelectedItem.ToString() == cbResultatPartie.Items[0].ToString());
+            partieModel.nbCycle = int.Parse(txtNbCycle.Text);
+            partieModel.graveholdVie = int.Parse(txtGraveHoldVie.Text);
+            partieModel.commentaire = txtCommentaire.Text;
+            
+            return partieModel;
         }
 
         private void BtnImporterMarket_Click_1(object sender, EventArgs e)

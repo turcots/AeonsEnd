@@ -34,12 +34,36 @@ namespace winAeonsEnd
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPartiesJouees = new System.Windows.Forms.TabPage();
+            this.grpResultatPartie = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtNomPartie = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cbResultatPartie = new System.Windows.Forms.ComboBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.cbPartie = new System.Windows.Forms.ComboBox();
+            this.btnSupprimerPartie = new System.Windows.Forms.Button();
+            this.label33 = new System.Windows.Forms.Label();
+            this.txtNbCycle = new System.Windows.Forms.TextBox();
+            this.btnNouvellePartie = new System.Windows.Forms.Button();
+            this.txtCommentaire = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.bntChargerPartie = new System.Windows.Forms.Button();
+            this.txtGraveHoldVie = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtNemesisVie = new System.Windows.Forms.TextBox();
+            this.btnSauverPartie = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtVieMage1 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtVieMage2 = new System.Windows.Forms.TextBox();
+            this.txtVieMage3 = new System.Windows.Forms.TextBox();
+            this.txtVieMage4 = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
             this.cbNbJoueursPartie = new System.Windows.Forms.ComboBox();
             this.bntHasard = new System.Windows.Forms.Button();
-            this.btnSupprimerPartie = new System.Windows.Forms.Button();
-            this.btnNouvellePartie = new System.Windows.Forms.Button();
-            this.bntChargerPartie = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblVieDepartNemesis = new System.Windows.Forms.Label();
             this.lblNiveauNemesis = new System.Windows.Forms.Label();
@@ -47,8 +71,6 @@ namespace winAeonsEnd
             this.label32 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.cbNemesis = new System.Windows.Forms.ComboBox();
-            this.txtNemesisVie = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbReplique1 = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -74,41 +96,19 @@ namespace winAeonsEnd
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.cbMage2 = new System.Windows.Forms.ComboBox();
             this.cbMage3 = new System.Windows.Forms.ComboBox();
             this.cbMage4 = new System.Windows.Forms.ComboBox();
-            this.txtVieMage4 = new System.Windows.Forms.TextBox();
-            this.txtVieMage1 = new System.Windows.Forms.TextBox();
-            this.txtVieMage3 = new System.Windows.Forms.TextBox();
-            this.txtVieMage2 = new System.Windows.Forms.TextBox();
-            this.btnSauverPartie = new System.Windows.Forms.Button();
-            this.txtCommentaire = new System.Windows.Forms.TextBox();
-            this.txtGraveHoldVie = new System.Windows.Forms.TextBox();
             this.cbVersionPJ = new System.Windows.Forms.ComboBox();
-            this.txtNbCycle = new System.Windows.Forms.TextBox();
             this.lblNumeroPartie = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cbResultatPartie = new System.Windows.Forms.ComboBox();
-            this.grpResultatPartie = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbPartie = new System.Windows.Forms.ComboBox();
-            this.txtNomPartie = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPartiesJouees.SuspendLayout();
+            this.grpResultatPartie.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.Mages.SuspendLayout();
-            this.grpResultatPartie.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -142,10 +142,283 @@ namespace winAeonsEnd
             this.tabPartiesJouees.TabIndex = 1;
             this.tabPartiesJouees.Text = "Parties jouées";
             // 
+            // grpResultatPartie
+            // 
+            this.grpResultatPartie.Controls.Add(this.label2);
+            this.grpResultatPartie.Controls.Add(this.txtNomPartie);
+            this.grpResultatPartie.Controls.Add(this.label1);
+            this.grpResultatPartie.Controls.Add(this.label12);
+            this.grpResultatPartie.Controls.Add(this.cbResultatPartie);
+            this.grpResultatPartie.Controls.Add(this.label31);
+            this.grpResultatPartie.Controls.Add(this.cbPartie);
+            this.grpResultatPartie.Controls.Add(this.btnSupprimerPartie);
+            this.grpResultatPartie.Controls.Add(this.label33);
+            this.grpResultatPartie.Controls.Add(this.txtNbCycle);
+            this.grpResultatPartie.Controls.Add(this.btnNouvellePartie);
+            this.grpResultatPartie.Controls.Add(this.txtCommentaire);
+            this.grpResultatPartie.Controls.Add(this.label9);
+            this.grpResultatPartie.Controls.Add(this.label17);
+            this.grpResultatPartie.Controls.Add(this.bntChargerPartie);
+            this.grpResultatPartie.Controls.Add(this.txtGraveHoldVie);
+            this.grpResultatPartie.Controls.Add(this.label34);
+            this.grpResultatPartie.Controls.Add(this.label18);
+            this.grpResultatPartie.Controls.Add(this.txtNemesisVie);
+            this.grpResultatPartie.Controls.Add(this.btnSauverPartie);
+            this.grpResultatPartie.Controls.Add(this.label19);
+            this.grpResultatPartie.Controls.Add(this.txtVieMage1);
+            this.grpResultatPartie.Controls.Add(this.label20);
+            this.grpResultatPartie.Controls.Add(this.txtVieMage2);
+            this.grpResultatPartie.Controls.Add(this.txtVieMage3);
+            this.grpResultatPartie.Controls.Add(this.txtVieMage4);
+            this.grpResultatPartie.Location = new System.Drawing.Point(648, 59);
+            this.grpResultatPartie.Name = "grpResultatPartie";
+            this.grpResultatPartie.Size = new System.Drawing.Size(432, 345);
+            this.grpResultatPartie.TabIndex = 82;
+            this.grpResultatPartie.TabStop = false;
+            this.grpResultatPartie.Text = "Partie jouée";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(132, 17);
+            this.label2.TabIndex = 85;
+            this.label2.Text = "Partie sauvegardée";
+            // 
+            // txtNomPartie
+            // 
+            this.txtNomPartie.Location = new System.Drawing.Point(155, 58);
+            this.txtNomPartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNomPartie.Name = "txtNomPartie";
+            this.txtNomPartie.Size = new System.Drawing.Size(265, 22);
+            this.txtNomPartie.TabIndex = 84;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 88);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 17);
+            this.label1.TabIndex = 82;
+            this.label1.Text = "Résultat";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(19, 117);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(94, 17);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "Nemesis (vie)";
+            // 
+            // cbResultatPartie
+            // 
+            this.cbResultatPartie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbResultatPartie.FormattingEnabled = true;
+            this.cbResultatPartie.Items.AddRange(new object[] {
+            "Gagné",
+            "Perdu"});
+            this.cbResultatPartie.Location = new System.Drawing.Point(155, 85);
+            this.cbResultatPartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbResultatPartie.Name = "cbResultatPartie";
+            this.cbResultatPartie.Size = new System.Drawing.Size(121, 24);
+            this.cbResultatPartie.TabIndex = 81;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(19, 144);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(114, 17);
+            this.label31.TabIndex = 34;
+            this.label31.Text = "Nombre de cycle";
+            // 
+            // cbPartie
+            // 
+            this.cbPartie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPartie.FormattingEnabled = true;
+            this.cbPartie.Location = new System.Drawing.Point(155, 29);
+            this.cbPartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbPartie.Name = "cbPartie";
+            this.cbPartie.Size = new System.Drawing.Size(265, 24);
+            this.cbPartie.TabIndex = 73;
+            // 
+            // btnSupprimerPartie
+            // 
+            this.btnSupprimerPartie.Location = new System.Drawing.Point(293, 184);
+            this.btnSupprimerPartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSupprimerPartie.Name = "btnSupprimerPartie";
+            this.btnSupprimerPartie.Size = new System.Drawing.Size(127, 30);
+            this.btnSupprimerPartie.TabIndex = 75;
+            this.btnSupprimerPartie.Text = "Supprimer partie";
+            this.btnSupprimerPartie.UseVisualStyleBackColor = true;
+            this.btnSupprimerPartie.Click += new System.EventHandler(this.btnSupprimerPartie_Click);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(19, 171);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(112, 17);
+            this.label33.TabIndex = 36;
+            this.label33.Text = "Grave Hold (vie)";
+            // 
+            // txtNbCycle
+            // 
+            this.txtNbCycle.Location = new System.Drawing.Point(155, 141);
+            this.txtNbCycle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNbCycle.Name = "txtNbCycle";
+            this.txtNbCycle.Size = new System.Drawing.Size(121, 22);
+            this.txtNbCycle.TabIndex = 43;
+            // 
+            // btnNouvellePartie
+            // 
+            this.btnNouvellePartie.Location = new System.Drawing.Point(293, 117);
+            this.btnNouvellePartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNouvellePartie.Name = "btnNouvellePartie";
+            this.btnNouvellePartie.Size = new System.Drawing.Size(127, 28);
+            this.btnNouvellePartie.TabIndex = 72;
+            this.btnNouvellePartie.Text = "Nouvelle partie";
+            this.btnNouvellePartie.UseVisualStyleBackColor = true;
+            this.btnNouvellePartie.Click += new System.EventHandler(this.btnNouvellePartie_Click);
+            // 
+            // txtCommentaire
+            // 
+            this.txtCommentaire.Location = new System.Drawing.Point(155, 304);
+            this.txtCommentaire.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCommentaire.Name = "txtCommentaire";
+            this.txtCommentaire.Size = new System.Drawing.Size(265, 22);
+            this.txtCommentaire.TabIndex = 61;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(19, 61);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(112, 17);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "Nom de la partie";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(19, 197);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(99, 17);
+            this.label17.TabIndex = 20;
+            this.label17.Text = "Vie du Mage 1";
+            // 
+            // bntChargerPartie
+            // 
+            this.bntChargerPartie.Location = new System.Drawing.Point(293, 85);
+            this.bntChargerPartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bntChargerPartie.Name = "bntChargerPartie";
+            this.bntChargerPartie.Size = new System.Drawing.Size(127, 28);
+            this.bntChargerPartie.TabIndex = 70;
+            this.bntChargerPartie.Text = "Charger partie";
+            this.bntChargerPartie.UseVisualStyleBackColor = true;
+            this.bntChargerPartie.Click += new System.EventHandler(this.bntChargerPartie_Click);
+            // 
+            // txtGraveHoldVie
+            // 
+            this.txtGraveHoldVie.Location = new System.Drawing.Point(155, 168);
+            this.txtGraveHoldVie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtGraveHoldVie.Name = "txtGraveHoldVie";
+            this.txtGraveHoldVie.Size = new System.Drawing.Size(121, 22);
+            this.txtGraveHoldVie.TabIndex = 47;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(19, 307);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(91, 17);
+            this.label34.TabIndex = 37;
+            this.label34.Text = "Commentaire";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(19, 225);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(99, 17);
+            this.label18.TabIndex = 21;
+            this.label18.Text = "Vie du Mage 2";
+            // 
+            // txtNemesisVie
+            // 
+            this.txtNemesisVie.Location = new System.Drawing.Point(155, 114);
+            this.txtNemesisVie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNemesisVie.Name = "txtNemesisVie";
+            this.txtNemesisVie.Size = new System.Drawing.Size(121, 22);
+            this.txtNemesisVie.TabIndex = 46;
+            // 
+            // btnSauverPartie
+            // 
+            this.btnSauverPartie.Location = new System.Drawing.Point(293, 149);
+            this.btnSauverPartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSauverPartie.Name = "btnSauverPartie";
+            this.btnSauverPartie.Size = new System.Drawing.Size(127, 30);
+            this.btnSauverPartie.TabIndex = 66;
+            this.btnSauverPartie.Text = "Sauver partie";
+            this.btnSauverPartie.UseVisualStyleBackColor = true;
+            this.btnSauverPartie.Click += new System.EventHandler(this.btnSauverPartie_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(19, 252);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(99, 17);
+            this.label19.TabIndex = 22;
+            this.label19.Text = "Vie du Mage 3";
+            // 
+            // txtVieMage1
+            // 
+            this.txtVieMage1.Location = new System.Drawing.Point(155, 195);
+            this.txtVieMage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtVieMage1.Name = "txtVieMage1";
+            this.txtVieMage1.Size = new System.Drawing.Size(121, 22);
+            this.txtVieMage1.TabIndex = 52;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(19, 279);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(99, 17);
+            this.label20.TabIndex = 23;
+            this.label20.Text = "Vie du Mage 4";
+            // 
+            // txtVieMage2
+            // 
+            this.txtVieMage2.Location = new System.Drawing.Point(155, 222);
+            this.txtVieMage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtVieMage2.Name = "txtVieMage2";
+            this.txtVieMage2.Size = new System.Drawing.Size(121, 22);
+            this.txtVieMage2.TabIndex = 53;
+            // 
+            // txtVieMage3
+            // 
+            this.txtVieMage3.Location = new System.Drawing.Point(155, 249);
+            this.txtVieMage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtVieMage3.Name = "txtVieMage3";
+            this.txtVieMage3.Size = new System.Drawing.Size(121, 22);
+            this.txtVieMage3.TabIndex = 54;
+            // 
+            // txtVieMage4
+            // 
+            this.txtVieMage4.Location = new System.Drawing.Point(155, 276);
+            this.txtVieMage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtVieMage4.Name = "txtVieMage4";
+            this.txtVieMage4.Size = new System.Drawing.Size(121, 22);
+            this.txtVieMage4.TabIndex = 55;
+            // 
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(332, 23);
+            this.label45.Location = new System.Drawing.Point(332, 26);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(129, 17);
             this.label45.TabIndex = 79;
@@ -175,39 +448,6 @@ namespace winAeonsEnd
             this.bntHasard.Text = "Hasard";
             this.bntHasard.UseVisualStyleBackColor = true;
             this.bntHasard.Click += new System.EventHandler(this.BntHasard_Click);
-            // 
-            // btnSupprimerPartie
-            // 
-            this.btnSupprimerPartie.Location = new System.Drawing.Point(293, 184);
-            this.btnSupprimerPartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSupprimerPartie.Name = "btnSupprimerPartie";
-            this.btnSupprimerPartie.Size = new System.Drawing.Size(127, 30);
-            this.btnSupprimerPartie.TabIndex = 75;
-            this.btnSupprimerPartie.Text = "Supprimer partie";
-            this.btnSupprimerPartie.UseVisualStyleBackColor = true;
-            this.btnSupprimerPartie.Click += new System.EventHandler(this.btnSupprimerPartie_Click);
-            // 
-            // btnNouvellePartie
-            // 
-            this.btnNouvellePartie.Location = new System.Drawing.Point(293, 117);
-            this.btnNouvellePartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnNouvellePartie.Name = "btnNouvellePartie";
-            this.btnNouvellePartie.Size = new System.Drawing.Size(127, 28);
-            this.btnNouvellePartie.TabIndex = 72;
-            this.btnNouvellePartie.Text = "Nouvelle partie";
-            this.btnNouvellePartie.UseVisualStyleBackColor = true;
-            this.btnNouvellePartie.Click += new System.EventHandler(this.btnNouvellePartie_Click);
-            // 
-            // bntChargerPartie
-            // 
-            this.bntChargerPartie.Location = new System.Drawing.Point(293, 85);
-            this.bntChargerPartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bntChargerPartie.Name = "bntChargerPartie";
-            this.bntChargerPartie.Size = new System.Drawing.Size(127, 28);
-            this.bntChargerPartie.TabIndex = 70;
-            this.bntChargerPartie.Text = "Charger partie";
-            this.bntChargerPartie.UseVisualStyleBackColor = true;
-            this.bntChargerPartie.Click += new System.EventHandler(this.bntChargerPartie_Click);
             // 
             // groupBox3
             // 
@@ -281,23 +521,6 @@ namespace winAeonsEnd
             this.cbNemesis.Size = new System.Drawing.Size(176, 24);
             this.cbNemesis.TabIndex = 45;
             this.cbNemesis.SelectedIndexChanged += new System.EventHandler(this.cbNemesis_SelectedIndexChanged);
-            // 
-            // txtNemesisVie
-            // 
-            this.txtNemesisVie.Location = new System.Drawing.Point(155, 114);
-            this.txtNemesisVie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtNemesisVie.Name = "txtNemesisVie";
-            this.txtNemesisVie.Size = new System.Drawing.Size(121, 22);
-            this.txtNemesisVie.TabIndex = 46;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(19, 117);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(94, 17);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "Nemesis (vie)";
             // 
             // groupBox2
             // 
@@ -569,42 +792,6 @@ namespace winAeonsEnd
             this.label16.TabIndex = 19;
             this.label16.Text = "Nom du mage 4";
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(19, 197);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(99, 17);
-            this.label17.TabIndex = 20;
-            this.label17.Text = "Vie du Mage 1";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(19, 225);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(99, 17);
-            this.label18.TabIndex = 21;
-            this.label18.Text = "Vie du Mage 2";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(19, 252);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(99, 17);
-            this.label19.TabIndex = 22;
-            this.label19.Text = "Vie du Mage 3";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(19, 279);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(99, 17);
-            this.label20.TabIndex = 23;
-            this.label20.Text = "Vie du Mage 4";
-            // 
             // cbMage2
             // 
             this.cbMage2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -635,65 +822,6 @@ namespace winAeonsEnd
             this.cbMage4.Size = new System.Drawing.Size(176, 24);
             this.cbMage4.TabIndex = 51;
             // 
-            // txtVieMage4
-            // 
-            this.txtVieMage4.Location = new System.Drawing.Point(155, 276);
-            this.txtVieMage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtVieMage4.Name = "txtVieMage4";
-            this.txtVieMage4.Size = new System.Drawing.Size(121, 22);
-            this.txtVieMage4.TabIndex = 55;
-            // 
-            // txtVieMage1
-            // 
-            this.txtVieMage1.Location = new System.Drawing.Point(155, 195);
-            this.txtVieMage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtVieMage1.Name = "txtVieMage1";
-            this.txtVieMage1.Size = new System.Drawing.Size(121, 22);
-            this.txtVieMage1.TabIndex = 52;
-            // 
-            // txtVieMage3
-            // 
-            this.txtVieMage3.Location = new System.Drawing.Point(155, 249);
-            this.txtVieMage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtVieMage3.Name = "txtVieMage3";
-            this.txtVieMage3.Size = new System.Drawing.Size(121, 22);
-            this.txtVieMage3.TabIndex = 54;
-            // 
-            // txtVieMage2
-            // 
-            this.txtVieMage2.Location = new System.Drawing.Point(155, 222);
-            this.txtVieMage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtVieMage2.Name = "txtVieMage2";
-            this.txtVieMage2.Size = new System.Drawing.Size(121, 22);
-            this.txtVieMage2.TabIndex = 53;
-            // 
-            // btnSauverPartie
-            // 
-            this.btnSauverPartie.Location = new System.Drawing.Point(293, 149);
-            this.btnSauverPartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSauverPartie.Name = "btnSauverPartie";
-            this.btnSauverPartie.Size = new System.Drawing.Size(127, 30);
-            this.btnSauverPartie.TabIndex = 66;
-            this.btnSauverPartie.Text = "Sauver partie";
-            this.btnSauverPartie.UseVisualStyleBackColor = true;
-            this.btnSauverPartie.Click += new System.EventHandler(this.btnSauverPartie_Click);
-            // 
-            // txtCommentaire
-            // 
-            this.txtCommentaire.Location = new System.Drawing.Point(155, 304);
-            this.txtCommentaire.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtCommentaire.Name = "txtCommentaire";
-            this.txtCommentaire.Size = new System.Drawing.Size(265, 22);
-            this.txtCommentaire.TabIndex = 61;
-            // 
-            // txtGraveHoldVie
-            // 
-            this.txtGraveHoldVie.Location = new System.Drawing.Point(155, 168);
-            this.txtGraveHoldVie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtGraveHoldVie.Name = "txtGraveHoldVie";
-            this.txtGraveHoldVie.Size = new System.Drawing.Size(121, 22);
-            this.txtGraveHoldVie.TabIndex = 47;
-            // 
             // cbVersionPJ
             // 
             this.cbVersionPJ.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -704,14 +832,6 @@ namespace winAeonsEnd
             this.cbVersionPJ.Size = new System.Drawing.Size(176, 24);
             this.cbVersionPJ.TabIndex = 44;
             // 
-            // txtNbCycle
-            // 
-            this.txtNbCycle.Location = new System.Drawing.Point(155, 141);
-            this.txtNbCycle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtNbCycle.Name = "txtNbCycle";
-            this.txtNbCycle.Size = new System.Drawing.Size(121, 22);
-            this.txtNbCycle.TabIndex = 43;
-            // 
             // lblNumeroPartie
             // 
             this.lblNumeroPartie.AutoSize = true;
@@ -719,33 +839,6 @@ namespace winAeonsEnd
             this.lblNumeroPartie.Name = "lblNumeroPartie";
             this.lblNumeroPartie.Size = new System.Drawing.Size(0, 17);
             this.lblNumeroPartie.TabIndex = 38;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(19, 307);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(91, 17);
-            this.label34.TabIndex = 37;
-            this.label34.Text = "Commentaire";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(19, 171);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(112, 17);
-            this.label33.TabIndex = 36;
-            this.label33.Text = "Grave Hold (vie)";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(19, 144);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(114, 17);
-            this.label31.TabIndex = 34;
-            this.label31.Text = "Nombre de cycle";
             // 
             // label10
             // 
@@ -756,104 +849,11 @@ namespace winAeonsEnd
             this.label10.TabIndex = 13;
             this.label10.Text = "Nom de version";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(19, 61);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(112, 17);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "Nom de la partie";
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // cbResultatPartie
-            // 
-            this.cbResultatPartie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbResultatPartie.FormattingEnabled = true;
-            this.cbResultatPartie.Items.AddRange(new object[] {
-            "Gagné",
-            "Perdu"});
-            this.cbResultatPartie.Location = new System.Drawing.Point(155, 85);
-            this.cbResultatPartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbResultatPartie.Name = "cbResultatPartie";
-            this.cbResultatPartie.Size = new System.Drawing.Size(121, 24);
-            this.cbResultatPartie.TabIndex = 81;
-            // 
-            // grpResultatPartie
-            // 
-            this.grpResultatPartie.Controls.Add(this.label2);
-            this.grpResultatPartie.Controls.Add(this.txtNomPartie);
-            this.grpResultatPartie.Controls.Add(this.label1);
-            this.grpResultatPartie.Controls.Add(this.label12);
-            this.grpResultatPartie.Controls.Add(this.cbResultatPartie);
-            this.grpResultatPartie.Controls.Add(this.label31);
-            this.grpResultatPartie.Controls.Add(this.cbPartie);
-            this.grpResultatPartie.Controls.Add(this.btnSupprimerPartie);
-            this.grpResultatPartie.Controls.Add(this.label33);
-            this.grpResultatPartie.Controls.Add(this.txtNbCycle);
-            this.grpResultatPartie.Controls.Add(this.btnNouvellePartie);
-            this.grpResultatPartie.Controls.Add(this.txtCommentaire);
-            this.grpResultatPartie.Controls.Add(this.label9);
-            this.grpResultatPartie.Controls.Add(this.label17);
-            this.grpResultatPartie.Controls.Add(this.bntChargerPartie);
-            this.grpResultatPartie.Controls.Add(this.txtGraveHoldVie);
-            this.grpResultatPartie.Controls.Add(this.label34);
-            this.grpResultatPartie.Controls.Add(this.label18);
-            this.grpResultatPartie.Controls.Add(this.txtNemesisVie);
-            this.grpResultatPartie.Controls.Add(this.btnSauverPartie);
-            this.grpResultatPartie.Controls.Add(this.label19);
-            this.grpResultatPartie.Controls.Add(this.txtVieMage1);
-            this.grpResultatPartie.Controls.Add(this.label20);
-            this.grpResultatPartie.Controls.Add(this.txtVieMage2);
-            this.grpResultatPartie.Controls.Add(this.txtVieMage3);
-            this.grpResultatPartie.Controls.Add(this.txtVieMage4);
-            this.grpResultatPartie.Location = new System.Drawing.Point(648, 59);
-            this.grpResultatPartie.Name = "grpResultatPartie";
-            this.grpResultatPartie.Size = new System.Drawing.Size(432, 345);
-            this.grpResultatPartie.TabIndex = 82;
-            this.grpResultatPartie.TabStop = false;
-            this.grpResultatPartie.Text = "Partie jouée";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 88);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 17);
-            this.label1.TabIndex = 82;
-            this.label1.Text = "Résultat";
-            // 
-            // cbPartie
-            // 
-            this.cbPartie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPartie.FormattingEnabled = true;
-            this.cbPartie.Location = new System.Drawing.Point(155, 29);
-            this.cbPartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbPartie.Name = "cbPartie";
-            this.cbPartie.Size = new System.Drawing.Size(265, 24);
-            this.cbPartie.TabIndex = 73;
-            // 
-            // txtNomPartie
-            // 
-            this.txtNomPartie.Location = new System.Drawing.Point(155, 58);
-            this.txtNomPartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtNomPartie.Name = "txtNomPartie";
-            this.txtNomPartie.Size = new System.Drawing.Size(265, 22);
-            this.txtNomPartie.TabIndex = 84;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 17);
-            this.label2.TabIndex = 85;
-            this.label2.Text = "Partie sauvegardée";
             // 
             // AeonsEndForm
             // 
@@ -871,14 +871,14 @@ namespace winAeonsEnd
             this.tabControl1.ResumeLayout(false);
             this.tabPartiesJouees.ResumeLayout(false);
             this.tabPartiesJouees.PerformLayout();
+            this.grpResultatPartie.ResumeLayout(false);
+            this.grpResultatPartie.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.Mages.ResumeLayout(false);
             this.Mages.PerformLayout();
-            this.grpResultatPartie.ResumeLayout(false);
-            this.grpResultatPartie.PerformLayout();
             this.ResumeLayout(false);
 
         }

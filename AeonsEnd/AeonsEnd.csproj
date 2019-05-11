@@ -70,6 +70,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
@@ -143,12 +144,14 @@
     <Compile Include="Affaires\IGem.cs" />
     <Compile Include="Affaires\IMage.cs" />
     <Compile Include="Affaires\INemesis.cs" />
+    <Compile Include="Affaires\IPartie.cs" />
     <Compile Include="Affaires\IRelic.cs" />
     <Compile Include="Affaires\ISort.cs" />
     <Compile Include="Affaires\IVersion.cs" />
     <Compile Include="Affaires\Mage.cs" />
     <Compile Include="Affaires\Marche.cs" />
     <Compile Include="Affaires\Nemesis.cs" />
+    <Compile Include="Affaires\Partie.cs" />
     <Compile Include="Affaires\Relic.cs" />
     <Compile Include="Affaires\Sort.cs" />
     <Compile Include="Affaires\Version.cs" />

@@ -17,15 +17,16 @@ namespace SQLiteAeonsEnd.Donnees.SqlLite.Inserts
 
         public void Inserts()
         {
-            Insert(GetModel((int)Versions.AeonsEnd, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,true,1,1,""));
+            Insert(GetModel("nom", (int)Versions.AeonsEnd, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,true,1,1,""));
   
             Console.WriteLine("Insert partie rows");
         }
 
-        private Partie GetModel( int versionId, int nemesisVie, int mageId1, int mageVie1, int mageId2, int mageVie2, int mageId3, int mageVie3, int mageId4, int mageVie4,
+        private Partie GetModel(string partieName, int versionId, int nemesisVie, int mageId1, int mageVie1, int mageId2, int mageVie2, int mageId3, int mageVie3, int mageId4, int mageVie4,
             int repliqueId1, int repliqueId2, int gemId1, int gemId2, int gemId3, int sortId1, int sortId2, int sortId3, int sortId4, bool partieGagne, int nbCycle, int graveholdVie, string commentaire )
         {
             return new Partie() {
+                partieName = partieName,
                 versionId = versionId,
                 nemesisVie = nemesisVie,
                 mageId1 = mageId1,

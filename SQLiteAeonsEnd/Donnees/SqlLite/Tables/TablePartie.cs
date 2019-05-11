@@ -20,6 +20,7 @@ namespace SQLiteAeonsEnd.Donnees.SqlLite.Tables
                 @"CREATE TABLE IF NOT EXISTS
                     partie (
                     partieId        INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                    partieName      VARCHAR(50) NOT NULL,
                     versionId       INTEGER NOT NULL,
                     nemesisId       INTEGER NOT NULL,
                     nemesisVie      INTEGER NOT NULL,
@@ -30,31 +31,31 @@ namespace SQLiteAeonsEnd.Donnees.SqlLite.Tables
                     mageId3         INTEGER NOT NULL,
                     mageVie3        INTEGER NOT NULL,
                     mageId4         INTEGER NOT NULL,
-                    mageLife4       INTEGER NOT NULL,
-                    replique1Id     INTEGER NOT NULL,
-                    replique2Id     INTEGER NOT NULL,
-                    gem1Id          INTEGER NOT NULL,
-                    gem2Id          INTEGER NOT NULL,
-                    gem3Id          INTEGER NOT NULL,
-                    sort1Id         INTEGER NOT NULL,
-                    sort2Id         INTEGER NOT NULL,
-                    sort3Id         INTEGER NOT NULL,
-                    sort4Id         INTEGER NOT NULL,
+                    mageVie4        INTEGER NOT NULL,
+                    repliqueId1     INTEGER NOT NULL,
+                    repliqueId2     INTEGER NOT NULL,
+                    gemId1          INTEGER NOT NULL,
+                    gemId2          INTEGER NOT NULL,
+                    gemId3          INTEGER NOT NULL,
+                    sortId1         INTEGER NOT NULL,
+                    sortId2         INTEGER NOT NULL,
+                    sortId3         INTEGER NOT NULL,
+                    sortId4         INTEGER NOT NULL,
                     partieGagne     BIT NOT NULL,
                     nbCycle         INTEGER NOT NULL,
                     graveholdVie    INTEGER NOT NULL,
-                    Commentaire     VARCHAR(50),
+                    commentaire     VARCHAR(50),
                     FOREIGN KEY(versionId) REFERENCES versions(id)
                     FOREIGN KEY(nemesisId) REFERENCES nemesis(id)
-                    FOREIGN KEY(replique1Id) REFERENCES relics(id)
-                    FOREIGN KEY(replique2Id) REFERENCES relics(id)
-                    FOREIGN KEY(gem1Id) REFERENCES gems(id)
-                    FOREIGN KEY(gem2Id) REFERENCES gems(id)
-                    FOREIGN KEY(gem3Id) REFERENCES gems(id)
-                    FOREIGN KEY(sort1Id) REFERENCES sorts(id)
-                    FOREIGN KEY(sort2Id) REFERENCES sorts(id)
-                    FOREIGN KEY(sort3Id) REFERENCES sorts(id)
-                    FOREIGN KEY(sort4Id) REFERENCES sorts(id))";
+                    FOREIGN KEY(repliqueId1) REFERENCES relics(id)
+                    FOREIGN KEY(repliqueId2) REFERENCES relics(id)
+                    FOREIGN KEY(gemId1) REFERENCES gems(id)
+                    FOREIGN KEY(gemId2) REFERENCES gems(id)
+                    FOREIGN KEY(gemId3) REFERENCES gems(id)
+                    FOREIGN KEY(sortId1) REFERENCES sorts(id)
+                    FOREIGN KEY(sortId2) REFERENCES sorts(id)
+                    FOREIGN KEY(sortId3) REFERENCES sorts(id)
+                    FOREIGN KEY(sortId4) REFERENCES sorts(id))";
 
             _sqlite_cmd.ExecuteNonQuery();
 

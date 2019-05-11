@@ -4,6 +4,7 @@ namespace SQLiteAeonsEnd.Entity
     public class Partie
     {
         public int partieId { get; set; }
+        public string partieName { get; set; }
         public int versionId { get; set; }
         public int nemesisId { get; set; }
         public int nemesisVie { get; set; }
