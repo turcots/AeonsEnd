@@ -19,9 +19,10 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
             _sqlite_cmd.CommandText =
                 @"CREATE TABLE IF NOT EXISTS
                     mages (
-                    id     INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                    name    NVARCHAR(25) NOT NULL,
-                    versionId    INTEGER NOT NULL,
+                    id              INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                    name            NVARCHAR(25) NOT NULL,
+                    versionId       INTEGER NOT NULL,
+                    description     NVARCHAR(25) NOT NULL,
                     FOREIGN KEY(versionId) REFERENCES versions(id))";
 
             _sqlite_cmd.ExecuteNonQuery();

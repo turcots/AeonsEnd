@@ -35,6 +35,7 @@ namespace winAeonsEnd
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPartiesJouees = new System.Windows.Forms.TabPage();
             this.grpResultatPartie = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNomPartie = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -103,7 +104,6 @@ namespace winAeonsEnd
             this.lblNumeroPartie = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPartiesJouees.SuspendLayout();
             this.grpResultatPartie.SuspendLayout();
@@ -178,6 +178,17 @@ namespace winAeonsEnd
             this.grpResultatPartie.TabIndex = 82;
             this.grpResultatPartie.TabStop = false;
             this.grpResultatPartie.Text = "Partie jouée";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(293, 218);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(127, 30);
+            this.button1.TabIndex = 86;
+            this.button1.Text = "Mettre à jour";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
             // 
             // label2
             // 
@@ -836,6 +847,7 @@ namespace winAeonsEnd
             this.cbVersionPJ.Name = "cbVersionPJ";
             this.cbVersionPJ.Size = new System.Drawing.Size(176, 24);
             this.cbVersionPJ.TabIndex = 44;
+            this.cbVersionPJ.SelectedIndexChanged += new System.EventHandler(this.CbVersionPJ_SelectedIndexChanged);
             // 
             // lblNumeroPartie
             // 
@@ -859,17 +871,6 @@ namespace winAeonsEnd
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(293, 218);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 30);
-            this.button1.TabIndex = 86;
-            this.button1.Text = "Mettre à jour";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
             // 
             // AeonsEndForm
             // 

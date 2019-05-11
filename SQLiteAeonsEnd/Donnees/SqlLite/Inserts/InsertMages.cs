@@ -19,44 +19,44 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
         public void Inserts()
         {
             //Aeon's End
-            Insert(GetModel("Kadir", (int)Versions.AeonsEnd));
-            Insert(GetModel("Phaedraxa", (int)Versions.AeonsEnd));
-            Insert(GetModel("Adelheim", (int)Versions.AeonsEnd));
-            Insert(GetModel("Brama", (int)Versions.AeonsEnd));
-            Insert(GetModel("Jian", (int)Versions.AeonsEnd));
-           // Insert(GetModel("Mist", (int)Versions.AeonsEnd));
-         //   Insert(GetModel("Xanos", (int)Versions.AeonsEnd));
-            Insert(GetModel("Lash", (int)Versions.AeonsEnd));
+            Insert(GetModel("Kadir", (int)Versions.AeonsEnd, "breach mage delver"));//mage de la brèche, chercheuse; breach mage delver
+            Insert(GetModel("Phaedraxa", (int)Versions.AeonsEnd, "breach mage seer"));//mage de la brèche, voyante; ; breach mage seer
+            Insert(GetModel("Adelheim", (int)Versions.AeonsEnd, "breach mage weaponsmith"));//mage de la brèche, armurier; ; breach mage weaponsmith
+            Insert(GetModel("Brama", (int)Versions.AeonsEnd, "breach mage elder"));//mage de la brèche, ancienne; ; breach mage elder
+            Insert(GetModel("Jian", (int)Versions.AeonsEnd, "breach mage orphan"));//mage de la brèche, orpheline; ; breach mage orphan
+            Insert(GetModel("Mist", (int)Versions.AeonsEnd, "dagger captain"));//capitaine de la dague; dagger captain
+            Insert(GetModel("Xanos", (int)Versions.AeonsEnd, "breach mage adept"));//mage de la brèche, adepte; ; breach mage adept
+            Insert(GetModel("Lash", (int)Versions.AeonsEnd, "breach mage scout")); //mage de la brèche,éclaireur; breach mage scout
 
             //Aeon's End - War Ethernal
-            Insert(GetModel("Garu", (int)Versions.WarEternal));
-            Insert(GetModel("Quilius", (int)Versions.WarEternal));
-            Insert(GetModel("Ulgimor", (int)Versions.WarEternal));
-            Insert(GetModel("Mazahaedron", (int)Versions.WarEternal));
-            Insert(GetModel("Yan magda", (int)Versions.WarEternal));
-            Insert(GetModel("Mist", (int)Versions.WarEternal));
-            Insert(GetModel("Dezmodia", (int)Versions.WarEternal));
-            Insert(GetModel("Gex", (int)Versions.WarEternal));
+            Insert(GetModel("Garu", (int)Versions.WarEternal, "oathsworn protector"));//oathsworn protector
+            Insert(GetModel("Quilius", (int)Versions.WarEternal, "breach mage assassin"));//breach mage assassin
+            Insert(GetModel("Ulgimor", (int)Versions.WarEternal, "shadowkin beast"));//shadowkin beast
+            Insert(GetModel("Mazahaedron", (int)Versions.WarEternal, "henge mystic"));//henge mystic
+            Insert(GetModel("Yan magda", (int)Versions.WarEternal, "enlightened exile"));//enlightened exile
+            Insert(GetModel("Mist-VW", (int)Versions.WarEternal, "voidwalker"));//voidwalker
+            Insert(GetModel("Dezmodia", (int)Versions.WarEternal, "voidborn prodigy"));//voidborn prodigy
+            Insert(GetModel("Gex", (int)Versions.WarEternal, "breach mage adviser"));//breach mage adviser
  
             //The void
-            Insert(GetModel("Sparrow", (int)Versions.TheVoid));
-            Insert(GetModel("Xanos", (int)Versions.TheVoid));
+            Insert(GetModel("Sparrow", (int)Versions.TheVoid, "breach mage soldier"));//breach mage soldier
+            Insert(GetModel("Xaxos-VB", (int)Versions.TheVoid, "voidbringer"));//voidbringer
 
             //The outer dark
-            Insert(GetModel("Indira", (int)Versions.TheOuterDark));
-            Insert(GetModel("Remnant", (int)Versions.TheOuterDark));
+            Insert(GetModel("Indira", (int)Versions.TheOuterDark, "breach apprentice"));//breach apprentice
+            Insert(GetModel("Remnant", (int)Versions.TheOuterDark, "aethereal entity"));//aethereal entity
 
             Console.WriteLine("Insert nemesis rows");
         }
 
-        private Mages GetModel( string name, int versionId)
+        private Mages GetModel( string name, int versionId, string description)
         {
-            return new Mages() { Name = name, VersionId = versionId};
+            return new Mages() { Name = name, VersionId = versionId, Description = description};
         }
 
         public void Insert(Mages mages)
         {
-            _sqlite_cmd.CommandText = string.Format("INSERT INTO mages (name, versionId) VALUES ('{0}', {1});", mages.Name, mages.VersionId);
+            _sqlite_cmd.CommandText = string.Format("INSERT INTO mages (name, versionId, description) VALUES ('{0}', {1}, '{2}');", mages.Name, mages.VersionId, mages.Description);
             _sqlite_cmd.ExecuteNonQuery();
         }
     }

@@ -201,7 +201,7 @@ namespace winAeonsEnd
             ComboBox combo = (ComboBox)sender;
             NemesisModel selectedModel = (NemesisModel)combo.SelectedItem;
 
-            if (selectedModel.Id == 0)
+            if (selectedModel == null || selectedModel.Id == 0)
             {
                 lblNiveauNemesis.Text = string.Empty;
                 lblVieDepartNemesis.Text = string.Empty;
@@ -590,11 +590,11 @@ namespace winAeonsEnd
                 throw new Exception("Sort 4 invalide");
             if (!int.TryParse(txtVieMage1.Text, out result))
                 throw new Exception("Vie du mage 1 invalide");
-            if (!int.TryParse(txtVieMage2.Text, out result))
+            if (!int.TryParse(txtVieMage2.Text, out result) && int.Parse(cbNbJoueursPartie.Text) >= 2)
                 throw new Exception("Vie du mage 2 invalide");
-            if (!int.TryParse(txtVieMage3.Text, out result))
+            if (!int.TryParse(txtVieMage3.Text, out result) && int.Parse(cbNbJoueursPartie.Text) >= 3)
                 throw new Exception("Vie du mage 3 invalide");
-            if (!int.TryParse(txtVieMage4.Text, out result))
+            if (!int.TryParse(txtVieMage4.Text, out result) && int.Parse(cbNbJoueursPartie.Text) >= 4)
                 throw new Exception("Vie du mage 4 invalide");
             if (!int.TryParse(txtNbCycle.Text, out result))
                 throw new Exception("Nombre de cycle invalide");
@@ -616,12 +616,12 @@ namespace winAeonsEnd
             partieModel.nemesisVie = int.Parse(txtNemesisVie.Text);
             partieModel.mageId1 = cbMage1.SelectedValue == null ? 0 : int.Parse(cbMage1.SelectedValue.ToString());
             partieModel.mageVie1 = int.Parse(txtVieMage1.Text);
-            partieModel.mageId2 = cbMage2.SelectedValue == null ? 0 : int.Parse(cbMage2.SelectedValue.ToString());
-            partieModel.mageVie2 = int.Parse(txtVieMage2.Text);
-            partieModel.mageId3 = cbMage3.SelectedValue == null ? 0 : int.Parse(cbMage3.SelectedValue.ToString());
-            partieModel.mageVie3 = int.Parse(txtVieMage3.Text);
-            partieModel.mageId4 = cbMage4.SelectedValue == null ? 0 : int.Parse(cbMage4.SelectedValue.ToString());
-            partieModel.mageVie4 = int.Parse(txtVieMage4.Text);
+            partieModel.mageId2 = cbMage2.SelectedValue == null ? -1 : int.Parse(cbMage2.SelectedValue.ToString());
+            partieModel.mageVie2 = (txtVieMage2.Text == "") ? 0 : int.Parse(txtVieMage2.Text);
+            partieModel.mageId3 = cbMage3.SelectedValue == null ? -1 : int.Parse(cbMage3.SelectedValue.ToString());
+            partieModel.mageVie3 = (txtVieMage3.Text == "")? 0 : int.Parse(txtVieMage3.Text);
+            partieModel.mageId4 = cbMage4.SelectedValue == null ? -1 : int.Parse(cbMage4.SelectedValue.ToString());
+            partieModel.mageVie4 = (txtVieMage4.Text == "") ? 0 : int.Parse(txtVieMage4.Text);
             partieModel.repliqueId1 = int.Parse(cbReplique1.SelectedValue.ToString());
             partieModel.repliqueId2 = int.Parse(cbReplique2.SelectedValue.ToString());
             partieModel.gemId1 = int.Parse(cbGem1.SelectedValue.ToString());
@@ -704,7 +704,6 @@ namespace winAeonsEnd
         {
             if (e.Button == MouseButtons.Right)
             {
-                
                 PopUpForm();
             }
 
@@ -781,5 +780,33 @@ namespace winAeonsEnd
         {
 
         }
+
+        private void CbVersionPJ_SelectedIndexChanged(object sender, EventArgs e)
+        {
+             //ChargerSelonPartie();
+        }
+
+        private async Task ChargerSelonPartie()
+        {
+            int nbVersion = 0;
+            string valeur = Convert.ToString(cbVersionPJ.SelectedValue);
+
+            int.TryParse(valeur, out nbVersion);
+
+            //if (cbNbJoueursPartie.Text != "")
+            //    LoadMarket(int.Parse(cbNbJoueursPartie.Text), nbVersion);
+
+            marche = (await new winAeonsEnd.Affaires.Marche().ObtenirMarcheAsync());
+
+            //LoadVersionsAsync(marche.ListeVersions);
+            LoadNemesisAsync(marche.ListeNemesis.Where(x => x.VersionId == nbVersion || 0 == nbVersion).ToList());
+            LoadMagesAsync(marche.ListeMages.Where(x => x.VersionId == nbVersion || 0 == nbVersion).ToList());
+            LoadRelicsAsync(marche.ListeRelics.Where(x => x.VersionId == nbVersion || 0 == nbVersion).ToList());
+            LoadGemsAsync(marche.ListeGems.Where(x => x.VersionId == nbVersion || 0 == nbVersion).ToList());
+            LoadSortsAsync(marche.ListeSorts.Where(x => x.VersionId == nbVersion || 0 == nbVersion).ToList());
+
+            //LoadParties();
+        }
+
     }
 }
