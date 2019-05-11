@@ -12,40 +12,24 @@ namespace AeonsEnd.Affaires
     {
         public Partie() { }
 
-        public string Delete(int partieId)
+        public void Delete(int partieId)
         {
-            string messageErreur = "Partie supprimée";
-            try
-            {
-                new PartieDonnees().Delete(partieId);
-            }
-            catch (Exception e)
-            {
-                messageErreur = e.Message;
-            }
-
-            return messageErreur;
+            new PartieDonnees().Delete(partieId);
         }
 
-        public string Insert(PartieModel partie)
+        public void Insert(PartieModel partie)
         {
-            string messageErreur = "Partie sauvegardée";
-            //try
-            //{
-            //    new PartieDonnees().Insert(partie);
-            //}
-            //catch (Exception e)
-            //{
-            //    messageErreur = e.Message;
-            //}
             new PartieDonnees().Insert(partie);
-
-            return messageErreur;
         }
 
         public List<PartieModel> ObtenirPartieTous()
         {  
            return new PartieDonnees().ObtenirParties().ToList();
+        }
+
+        public void Update(PartieModel partie)
+        {
+            new PartieDonnees().Update(partie);
         }
     }
 }

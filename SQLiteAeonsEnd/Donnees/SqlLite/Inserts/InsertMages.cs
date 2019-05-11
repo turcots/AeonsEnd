@@ -24,8 +24,8 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
             Insert(GetModel("Adelheim", (int)Versions.AeonsEnd));
             Insert(GetModel("Brama", (int)Versions.AeonsEnd));
             Insert(GetModel("Jian", (int)Versions.AeonsEnd));
-            Insert(GetModel("Mist", (int)Versions.AeonsEnd));
-            Insert(GetModel("Xanos", (int)Versions.AeonsEnd));
+           // Insert(GetModel("Mist", (int)Versions.AeonsEnd));
+         //   Insert(GetModel("Xanos", (int)Versions.AeonsEnd));
             Insert(GetModel("Lash", (int)Versions.AeonsEnd));
 
             //Aeon's End - War Ethernal

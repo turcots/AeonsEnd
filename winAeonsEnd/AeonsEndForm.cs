@@ -25,6 +25,7 @@ namespace winAeonsEnd
 
         private async Task ChargerMarche()
         {
+            this.Enabled = false;
             marche = (await new winAeonsEnd.Affaires.Marche().ObtenirMarcheAsync());
 
             LoadVersionsAsync(marche.ListeVersions);
@@ -35,6 +36,7 @@ namespace winAeonsEnd
             LoadSortsAsync(marche.ListeSorts);
 
             LoadParties();
+            this.Enabled = true;
         }
 
         private void LoadParties()
@@ -42,6 +44,8 @@ namespace winAeonsEnd
             cbPartie.DisplayMember = "partieName";
             cbPartie.ValueMember = "partieId";
             cbPartie.DataSource = ObtenirParties();
+
+            cbPartie.SelectedIndex = cbPartie.FindStringExact(txtNomPartie.Text);
         }
 
         private List<PartieModel> ObtenirParties()
@@ -194,19 +198,19 @@ namespace winAeonsEnd
 
         private void cbNemesis_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //ComboBox combo = (ComboBox)sender;
-            //NemesisModel selectedModel = (NemesisModel)combo.SelectedItem;
+            ComboBox combo = (ComboBox)sender;
+            NemesisModel selectedModel = (NemesisModel)combo.SelectedItem;
 
-            //if (selectedModel.Id == 0)
-            //{
-            //    lblNiveauNemesis.Text = string.Empty;
-            //    lblVieDepartNemesis.Text = string.Empty;
-            //}
-            //else
-            //{
-            //    lblNiveauNemesis.Text = selectedModel.Level.ToString();
-            //    lblVieDepartNemesis.Text = selectedModel.Life.ToString();
-            //}
+            if (selectedModel.Id == 0)
+            {
+                lblNiveauNemesis.Text = string.Empty;
+                lblVieDepartNemesis.Text = string.Empty;
+            }
+            else
+            {
+                lblNiveauNemesis.Text = selectedModel.Level.ToString();
+                lblVieDepartNemesis.Text = selectedModel.Life.ToString();
+            }
         }
 
         private void cbReplique2_SelectedIndexChanged(object sender, EventArgs e)
@@ -282,17 +286,12 @@ namespace winAeonsEnd
                     cbGem2.SelectedIndex = cbGem2.FindStringExact(listeGemsVersion[1].Name);
                     cbGem3.SelectedIndex = cbGem3.FindStringExact(listeGemsVersion[2].Name);
                 }
-                // var stores = (from x in listeGemsVersion select new { x.VersionName, x.Name, x.Cost }).ToList();
-                //dgGems.DataSource = stores;
-                //dgGems.ClearSelection();
             }
             else
             {
                 cbGem1.SelectedIndex = -1;
                 cbGem2.SelectedIndex = -1;
                 cbGem3.SelectedIndex = -1;
-                //var stores = (from x in new List<GemModel>() select new { x.VersionName, x.Name, x.Cost }).ToList();
-                //dgGems.DataSource = stores;
             }
         }
 
@@ -313,17 +312,11 @@ namespace winAeonsEnd
                     cbReplique1.SelectedIndex = cbReplique1.FindStringExact(listeRelicsVersion[0].Name);
                     cbReplique2.SelectedIndex = cbReplique2.FindStringExact(listeRelicsVersion[1].Name);
                 }
-
-                //var stores = (from x in listeRelicsVersion select new { x.VersionName, x.Name, x.Cost }).ToList();
-                //dgRelics.DataSource = stores;
-                //dgRelics.ClearSelection();
             }
             else
             {
                 cbReplique1.SelectedIndex = -1;
                 cbReplique2.SelectedIndex = -1;
-                //var stores = (from x in new List<RelicModel>() select new { x.VersionName, x.Name, x.Cost }).ToList();
-                //dgRelics.DataSource = stores;
             }
         }
 
@@ -362,9 +355,6 @@ namespace winAeonsEnd
                     cbSort3.SelectedIndex = cbSort3.FindStringExact(listeSortsVersion[2].Name);
                     cbSort4.SelectedIndex = cbSort4.FindStringExact(listeSortsVersion[3].Name);
                 }
-                //var stores = (from x in listeSortsVersion select new { x.VersionName, x.Name, x.Cost }).ToList();
-                //dgSorts.DataSource = stores;
-                //dgSorts.ClearSelection();
             }
             else
             {
@@ -372,8 +362,6 @@ namespace winAeonsEnd
                 cbSort2.SelectedIndex = -1;
                 cbSort3.SelectedIndex = -1;
                 cbSort4.SelectedIndex = -1;
-                //var stores = (from x in new List<SortModel>() select new { x.VersionName, x.Name, x.Cost }).ToList();
-                //dgSorts.DataSource = stores;
             }
         }
 
@@ -384,10 +372,6 @@ namespace winAeonsEnd
 
             if (listeMagesVersion.Any())
             {
-                //lstMages.DisplayMember = "Name";
-                //lstMages.ValueMember = "Id";
-                //lstMages.DataSource = listeMagesVersion;
-                //lstMages.SelectedIndex = -1;
                 if (listeMagesVersion.Count == 1)
                 {
                     cbMage1.SelectedIndex = cbMage1.FindStringExact(listeMagesVersion[0].Name);
@@ -416,7 +400,6 @@ namespace winAeonsEnd
                     cbMage3.SelectedIndex = cbMage3.FindStringExact(listeMagesVersion[2].Name);
                     cbMage4.SelectedIndex = cbMage4.FindStringExact(listeMagesVersion[3].Name);
                 }
-                //cbMage1
             }
             else
             {
@@ -424,7 +407,6 @@ namespace winAeonsEnd
                 cbMage2.SelectedIndex = -1;
                 cbMage3.SelectedIndex = -1;
                 cbMage4.SelectedIndex = -1;
-                //lstMages.DataSource = null;
             }
         }
 
@@ -448,26 +430,30 @@ namespace winAeonsEnd
             LoadNemesis(versionId);
         }
 
-        private void BtnMarket_Click(object sender, EventArgs e)
-        {
-            //int nbVersion = 0;
-            //string valeur = Convert.ToString(cbVersions.SelectedValue);
-
-            //int.TryParse(valeur, out nbVersion);
-
-            //LoadMarket(int.Parse(cbNbJoueurs.Text), nbVersion);
-        }
-
         private void bntChargerPartie_Click(object sender, EventArgs e)
         {
-            int partieId = int.Parse(cbPartie.SelectedValue.ToString());
+            try
+            {
+                if (cbPartie.SelectedValue == null)
+                    throw new Exception("Vous devez sélectionner une partie sauvegardée pour pouvoir la chargée");
 
-            PartieModel partie = ObtenirParties().Where(x => x.partieId == partieId).FirstOrDefault();
+                int partieId = int.Parse(cbPartie.SelectedValue.ToString());
 
-            ChargerPartie(partie);
+                PartieModel partie = ObtenirParties().Where(x => x.partieId == partieId).FirstOrDefault();
+
+                ChargerPartie(partie);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message");
+            }
         }
 
         private void btnNouvellePartie_Click(object sender, EventArgs e)
+        {
+            InitialiserPartie();
+        }
+        private void InitialiserPartie()
         {
             txtNomPartie.Text = "";
             txtNemesisVie.Text = "";
@@ -488,9 +474,21 @@ namespace winAeonsEnd
 
         private void btnSupprimerPartie_Click(object sender, EventArgs e)
         {
-            var messageErreur = new Partie().Delete(int.Parse(cbPartie.SelectedValue.ToString()));
-            LoadParties();
-            MessageBox.Show(messageErreur);
+            string messageErreur = "Partie supprimée";
+            try
+            {
+                if (cbPartie.SelectedValue == null)
+                    throw new Exception("Vous devez sélectionner une partie sauvegardée pour pouvoir la supprimer");
+
+                new Partie().Delete(int.Parse(cbPartie.SelectedValue.ToString()));
+                LoadParties();
+                InitialiserPartie();
+            }
+            catch (Exception ex)
+            {
+                messageErreur = ex.Message;
+            }
+            MessageBox.Show(messageErreur, "Message");
         }
 
         private void btnSauverPartie_Click(object sender, EventArgs e)
@@ -507,9 +505,6 @@ namespace winAeonsEnd
                 messageErreur = ex.Message;
             }
 
-            //var partie = RecupererPartie();
-            //var messageErreur = new Partie().Insert(partie);
-            //LoadParties();
             MessageBox.Show(messageErreur, "Message");
         }
 
@@ -540,6 +535,19 @@ namespace winAeonsEnd
             txtNbCycle.Text = partie.nbCycle.ToString();
             txtGraveHoldVie.Text = partie.graveholdVie.ToString();
             txtCommentaire.Text = partie.commentaire;
+
+            var nbJoueurs = 0;
+            if (partie.mageId1 > 0)
+                nbJoueurs++;
+            if (partie.mageId2 > 0)
+                nbJoueurs++;
+            if (partie.mageId3 > 0)
+                nbJoueurs++;
+            if (partie.mageId4 > 0)
+                nbJoueurs++;
+
+            cbNbJoueursPartie.SelectedItem = nbJoueurs.ToString();
+
         }
 
         private void ValidationChampsPartie()
@@ -744,6 +752,34 @@ namespace winAeonsEnd
         private void Button1_Click(object sender, EventArgs e)
         {
             PopUpForm();
+        }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+            string messageErreur = "Partie mise à jour";
+            try
+            {
+                if (cbPartie.SelectedValue == null || !int.TryParse(cbPartie.SelectedValue.ToString(), out int result) || cbPartie.SelectedValue.ToString() == "0")
+                    throw new Exception("Vous devez sélectionner une partie sauvegardée");
+
+                var partie = RecupererPartie();
+ 
+                partie.partieId = int.Parse(cbPartie.SelectedValue.ToString());
+
+                new Partie().Update(partie);
+                LoadParties();
+            }
+            catch (Exception ex)
+            {
+                messageErreur = ex.Message;
+            }
+
+            MessageBox.Show(messageErreur, "Message");
+        }
+
+        private void CbNbJoueursPartie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

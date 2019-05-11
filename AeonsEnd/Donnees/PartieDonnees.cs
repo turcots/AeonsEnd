@@ -74,6 +74,69 @@ namespace AeonsEnd.Donnees
             _database.sqlite_conn.Close();
         }
 
+        public void Update(PartieModel partie)
+        {
+            _database.sqlite_conn.Open();
+
+            var sql = string.Format("UPDATE partie set partieName='{0}', " +
+                "versionId={1}, " +
+                "nemesisId={2}, " +
+                "nemesisVie={3}, " +
+                "mageId1={4}, " +
+                "mageVie1={5}, " +
+                "mageId2={6}, " +
+                "mageVie2={7}, " +
+                "mageId3={8}, " +
+                "mageVie3={9}, " +
+                "mageId4={10}, " +
+                "mageVie4={11}, " +
+                "repliqueId1={12}, " +
+                "repliqueId2={13}, " +
+                "gemId1={14}, " +
+                "gemId2={15}, " +
+                "gemId3={16}, " +
+                "sortId1={17}, " +
+                "sortId2={18}, " +
+                "sortId3={19}, " +
+                "sortId4={20}, " +
+                "partieGagne={21}, " +
+                "nbCycle={22}, " +
+                "graveholdVie={23}, " +
+                "commentaire='{24}' WHERE partieId={25};",
+                partie.partieName,
+                partie.versionId,
+                partie.nemesisId,
+                partie.nemesisVie,
+                partie.mageId1,
+                partie.mageVie1,
+                partie.mageId2,
+                partie.mageVie2,
+                partie.mageId3,
+                partie.mageVie3,
+                partie.mageId4,
+                partie.mageVie4,
+                partie.repliqueId1,
+                partie.repliqueId2,
+                partie.gemId1,
+                partie.gemId2,
+                partie.gemId3,
+                partie.sortId1,
+                partie.sortId2,
+                partie.sortId3,
+                partie.sortId4,
+                partie.partieGagne,
+                partie.nbCycle,
+                partie.graveholdVie,
+                partie.commentaire,
+                partie.partieId
+                );
+
+            SQLiteCommand command = new SQLiteCommand(sql, _database.sqlite_conn);
+            SQLiteDataReader reader = command.ExecuteReader();
+
+            _database.sqlite_conn.Close();
+        }
+
         public void Insert(PartieModel partie)
         {
             _database.sqlite_conn.Open();
@@ -109,8 +172,6 @@ namespace AeonsEnd.Donnees
 
             SQLiteCommand command = new SQLiteCommand(sql, _database.sqlite_conn);
             SQLiteDataReader reader = command.ExecuteReader();
-
-            //_sqlite_cmd.ExecuteNonQuery();
 
             _database.sqlite_conn.Close();
         }

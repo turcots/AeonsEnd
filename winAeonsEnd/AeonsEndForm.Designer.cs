@@ -103,6 +103,7 @@ namespace winAeonsEnd
             this.lblNumeroPartie = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPartiesJouees.SuspendLayout();
             this.grpResultatPartie.SuspendLayout();
@@ -144,6 +145,7 @@ namespace winAeonsEnd
             // 
             // grpResultatPartie
             // 
+            this.grpResultatPartie.Controls.Add(this.button1);
             this.grpResultatPartie.Controls.Add(this.label2);
             this.grpResultatPartie.Controls.Add(this.txtNomPartie);
             this.grpResultatPartie.Controls.Add(this.label1);
@@ -190,6 +192,7 @@ namespace winAeonsEnd
             // 
             this.txtNomPartie.Location = new System.Drawing.Point(155, 58);
             this.txtNomPartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNomPartie.MaxLength = 50;
             this.txtNomPartie.Name = "txtNomPartie";
             this.txtNomPartie.Size = new System.Drawing.Size(265, 22);
             this.txtNomPartie.TabIndex = 84;
@@ -287,6 +290,7 @@ namespace winAeonsEnd
             // 
             this.txtCommentaire.Location = new System.Drawing.Point(155, 304);
             this.txtCommentaire.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCommentaire.MaxLength = 50;
             this.txtCommentaire.Name = "txtCommentaire";
             this.txtCommentaire.Size = new System.Drawing.Size(265, 22);
             this.txtCommentaire.TabIndex = 61;
@@ -438,6 +442,7 @@ namespace winAeonsEnd
             this.cbNbJoueursPartie.Name = "cbNbJoueursPartie";
             this.cbNbJoueursPartie.Size = new System.Drawing.Size(121, 24);
             this.cbNbJoueursPartie.TabIndex = 78;
+            this.cbNbJoueursPartie.SelectedIndexChanged += new System.EventHandler(this.CbNbJoueursPartie_SelectedIndexChanged);
             // 
             // bntHasard
             // 
@@ -550,7 +555,7 @@ namespace winAeonsEnd
             this.groupBox2.Size = new System.Drawing.Size(623, 172);
             this.groupBox2.TabIndex = 68;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Market";
+            this.groupBox2.Text = "Marché";
             // 
             // cbReplique1
             // 
@@ -855,6 +860,17 @@ namespace winAeonsEnd
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(293, 218);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(127, 30);
+            this.button1.TabIndex = 86;
+            this.button1.Text = "Mettre à jour";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
+            // 
             // AeonsEndForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -956,5 +972,6 @@ namespace winAeonsEnd
         private Label label2;
         private TextBox txtNomPartie;
         private ComboBox cbPartie;
+        private Button button1;
     }
 }

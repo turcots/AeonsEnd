@@ -7,8 +7,9 @@ namespace AeonsEnd.Affaires
     public interface IPartie
     {
         List<PartieModel> ObtenirPartieTous();
-        string Insert(PartieModel partie);
-        string Delete(int partieId);
+        void Insert(PartieModel partie);
+        void Update(PartieModel partie);
+        void Delete(int partieId);
 
     }
 }

@@ -76,7 +76,6 @@
     <Compile Include="Donnees\SqlLite\Tables\TableMages.cs" />
     <Compile Include="Donnees\SqlLite\Tables\TableNemesis.cs" />
     <Compile Include="Donnees\SqlLite\Tables\TablePartie.cs" />
-    <Compile Include="Donnees\SqlLite\Tables\TablePartieMage.cs" />
     <Compile Include="Donnees\SqlLite\Tables\TableRelics.cs" />
     <Compile Include="Donnees\SqlLite\Tables\TableSorts.cs" />
     <Compile Include="Donnees\SqlLite\Tables\TableVersion.cs" />
