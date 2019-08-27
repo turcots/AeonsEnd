@@ -52,6 +52,14 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
             Insert(GetModel("Void Mill", (int)Versions.Legacy, 5));
             Insert(GetModel("Voltaic Relay", (int)Versions.Legacy, 4));
 
+            //The depths
+            //Transmogrifier
+            //Vim Dynamo
+
+            //The nameless
+            //Molten Hammer
+            //Temporal Helix
+
             Console.WriteLine("Insert relics rows");
         }
 

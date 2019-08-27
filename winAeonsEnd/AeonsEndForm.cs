@@ -808,5 +808,13 @@ namespace winAeonsEnd
             //LoadParties();
         }
 
+        #region Events
+
+        #endregion
+
+        private void GroupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

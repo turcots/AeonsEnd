@@ -84,6 +84,19 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
             Insert(GetModel("Thunderous Oath", (int)Versions.Legacy, 8));
             Insert(GetModel("Warping Haze", (int)Versions.Legacy, 3));
 
+            //The depths
+            //Combustion
+            //Devouring Shadow
+            //Disintegrating Scythe
+            //Monstrous Inferno
+            //Void Bond
+
+            //The nameless
+            //Blaze
+            //Radiance
+            //Sage's Brand
+            //Scrying Bolt
+
             Console.WriteLine("Insert sorts rows");
         }
 

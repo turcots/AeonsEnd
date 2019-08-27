@@ -57,6 +57,12 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
             Insert(GetModel("Refined Lumenium", (int)Versions.Legacy, 5));
             Insert(GetModel("Soothing Torporene", (int)Versions.Legacy, 3));
 
+            //The depths
+            //Banishing Topaz
+
+            //The nameless
+            //Leeching Agate
+
             Console.WriteLine("Insert gems rows");
         }
 

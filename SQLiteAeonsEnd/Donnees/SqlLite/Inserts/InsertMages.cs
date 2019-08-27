@@ -46,6 +46,14 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
             Insert(GetModel("Indira", (int)Versions.TheOuterDark, "breach apprentice"));//breach apprentice
             Insert(GetModel("Remnant", (int)Versions.TheOuterDark, "aethereal entity"));//aethereal entity
 
+            //The depths
+            //Nym
+            //Reeve
+            //Z'hana
+
+            //The nameless
+            //Malastar
+
             Console.WriteLine("Insert nemesis rows");
         }
 

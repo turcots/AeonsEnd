@@ -20,11 +20,14 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
             Insert((int)Versions.AeonsEnd, "Aeons''End");
             Insert((int)Versions.Nameless, "Nameless (AE)");
             Insert((int)Versions.Depths, "Depths (AE)");       
+
             Insert((int)Versions.WarEternal, "War Eternal");
             Insert((int)Versions.TheVoid, "The void (WE)");
             Insert((int)Versions.TheOuterDark, "The outer dark  (WE)");
+
             Insert((int)Versions.Legacy, "Legacy");
             Insert((int)Versions.BuriedSecrets, "Buried Secrets (Legacy)");
+
             Insert((int)Versions.NewAge, "New Age");
             Insert((int)Versions.IntoTheWild, "Into the Wild (NA)");
             Insert((int)Versions.TheAncients, "The Ancients (NA)");

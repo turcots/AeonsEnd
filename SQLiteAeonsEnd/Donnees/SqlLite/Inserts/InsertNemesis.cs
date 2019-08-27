@@ -38,6 +38,12 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
             Insert(GetModel("Wraithmonger", (int)Versions.TheOuterDark, 6, 70));
             Insert(GetModel("Thrice-dead prophet", (int)Versions.TheOuterDark, 5, 40));
 
+            //The depths
+            //Horde-crone
+
+            //The nameless
+            //Wayward one
+            //Blight Lord
 
             Console.WriteLine("Insert nemesis rows");
         }
