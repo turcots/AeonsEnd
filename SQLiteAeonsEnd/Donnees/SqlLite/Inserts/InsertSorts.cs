@@ -84,6 +84,17 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
             Insert(GetModel("Thunderous Oath", (int)Versions.Legacy, 8));
             Insert(GetModel("Warping Haze", (int)Versions.Legacy, 3));
 
+            //Buried Secrets (Legacy)
+            Insert(GetModel("Blade of Wisdom", (int)Versions.BuriedSecrets, 6));
+            Insert(GetModel("Burning Current", (int)Versions.BuriedSecrets, 3));
+            Insert(GetModel("Double Tap", (int)Versions.BuriedSecrets, 3));
+            Insert(GetModel("Draining Touch", (int)Versions.BuriedSecrets, 2));
+            Insert(GetModel("Flash of Intellect", (int)Versions.BuriedSecrets, 4));
+            Insert(GetModel("Nerve Jab", (int)Versions.BuriedSecrets, 2));
+            Insert(GetModel("Precision Shot", (int)Versions.BuriedSecrets, 3));
+            Insert(GetModel("Psychic Eruption", (int)Versions.BuriedSecrets, 8));
+            Insert(GetModel("Stunning Force", (int)Versions.BuriedSecrets, 5));
+         
             //The depths
             //Combustion
             //Devouring Shadow

@@ -57,6 +57,25 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
             Insert(GetModel("Refined Lumenium", (int)Versions.Legacy, 5));
             Insert(GetModel("Soothing Torporene", (int)Versions.Legacy, 3));
 
+            //Buried Secrets (Legacy)
+            Insert(GetModel("Jolting Crust", (int)Versions.BuriedSecrets, 3));
+            Insert(GetModel("Mentite Chunk", (int)Versions.BuriedSecrets, 5));
+            Insert(GetModel("Muted Lacosite", (int)Versions.BuriedSecrets, 5));
+            Insert(GetModel("Oblivium Resin", (int)Versions.BuriedSecrets, 5));
+            Insert(GetModel("Shining Tetrite", (int)Versions.BuriedSecrets, 6));
+            Insert(GetModel("Summonite", (int)Versions.BuriedSecrets, 3));
+            Insert(GetModel("Triplite Core", (int)Versions.BuriedSecrets, 4));
+            Insert(GetModel("Voidium Spike", (int)Versions.BuriedSecrets, 3));
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+
+
             //The depths
             //Banishing Topaz
 

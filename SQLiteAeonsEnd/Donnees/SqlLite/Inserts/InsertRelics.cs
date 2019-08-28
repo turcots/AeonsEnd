@@ -52,6 +52,13 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
             Insert(GetModel("Void Mill", (int)Versions.Legacy, 5));
             Insert(GetModel("Voltaic Relay", (int)Versions.Legacy, 4));
 
+            //Buried Secrets (Legacy)
+            Insert(GetModel("Bottled Star", (int)Versions.BuriedSecrets, 7));
+            Insert(GetModel("Living Gauntlet", (int)Versions.BuriedSecrets, 4));
+            Insert(GetModel("Manifold Container", (int)Versions.BuriedSecrets, 4));
+            Insert(GetModel("Scholar's Opus", (int)Versions.BuriedSecrets, 3));
+            Insert(GetModel("Soul Cords", (int)Versions.BuriedSecrets, 5));
+  
             //The depths
             //Transmogrifier
             //Vim Dynamo
