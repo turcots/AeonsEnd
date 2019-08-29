@@ -47,12 +47,12 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
             Insert(GetModel("Remnant", (int)Versions.TheOuterDark, "aethereal entity"));//aethereal entity
 
             //The depths
-            //Nym
-            //Reeve
-            //Z'hana
+            Insert(GetModel("Nym", (int)Versions.Depths, "Breach mage apprentice"));
+            Insert(GetModel("Reeve", (int)Versions.Depths, "Breach mage elite"));
+            Insert(GetModel("Z''hana", (int)Versions.Depths, "Breach mage renegade"));
 
             //The nameless
-            //Malastar
+            Insert(GetModel("Malastar", (int)Versions.Nameless, "Breach mage mentor"));
 
             Console.WriteLine("Insert nemesis rows");
         }

@@ -94,19 +94,24 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
             Insert(GetModel("Precision Shot", (int)Versions.BuriedSecrets, 3));
             Insert(GetModel("Psychic Eruption", (int)Versions.BuriedSecrets, 8));
             Insert(GetModel("Stunning Force", (int)Versions.BuriedSecrets, 5));
-         
+
             //The depths
-            //Combustion
-            //Devouring Shadow
-            //Disintegrating Scythe
-            //Monstrous Inferno
-            //Void Bond
+            Insert(GetModel("Combustion", (int)Versions.Depths, 5));
+            Insert(GetModel("Devouring Shadow", (int)Versions.Depths, 6));
+            Insert(GetModel("Disintegrating Scythe", (int)Versions.Depths, 7));
+            Insert(GetModel("Monstrous Inferno", (int)Versions.Depths, 8));
+            Insert(GetModel("Void Bond", (int)Versions.Depths, 4));
 
             //The nameless
-            //Blaze
-            //Radiance
-            //Sage's Brand
-            //Scrying Bolt
+            Insert(GetModel("Blaze", (int)Versions.Nameless, 4));
+            Insert(GetModel("Radiance", (int)Versions.Nameless, 8));
+            Insert(GetModel("Sage''s Brand", (int)Versions.Nameless, 7));
+            Insert(GetModel("Scrying Bolt", (int)Versions.Nameless, 6));
+
+            //New Age
+            //Into the Wild (NA)
+            //The Ancients (NA)
+            //Shattered Dreams (NA)
 
             Console.WriteLine("Insert sorts rows");
         }

@@ -56,16 +56,22 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
             Insert(GetModel("Bottled Star", (int)Versions.BuriedSecrets, 7));
             Insert(GetModel("Living Gauntlet", (int)Versions.BuriedSecrets, 4));
             Insert(GetModel("Manifold Container", (int)Versions.BuriedSecrets, 4));
-            Insert(GetModel("Scholar's Opus", (int)Versions.BuriedSecrets, 3));
+            Insert(GetModel("Scholar''s Opus", (int)Versions.BuriedSecrets, 3));
             Insert(GetModel("Soul Cords", (int)Versions.BuriedSecrets, 5));
-  
+
             //The depths
-            //Transmogrifier
-            //Vim Dynamo
+            Insert(GetModel("Transmogrifier", (int)Versions.Depths, 4));
+            Insert(GetModel("Vim Dynamo", (int)Versions.Depths, 4));
 
             //The nameless
-            //Molten Hammer
-            //Temporal Helix
+            Insert(GetModel("Molten Hammer", (int)Versions.Nameless, 5));
+            Insert(GetModel("Temporal Helix", (int)Versions.Nameless, 7));
+
+            //New Age
+            //Into the Wild (NA)
+            //The Ancients (NA)
+            //Shattered Dreams (NA)
+
 
             Console.WriteLine("Insert relics rows");
         }

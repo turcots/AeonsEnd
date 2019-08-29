@@ -66,21 +66,17 @@ namespace SQLiteAeonsEnd.Affaires.SqlLite
             Insert(GetModel("Summonite", (int)Versions.BuriedSecrets, 3));
             Insert(GetModel("Triplite Core", (int)Versions.BuriedSecrets, 4));
             Insert(GetModel("Voidium Spike", (int)Versions.BuriedSecrets, 3));
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-
 
             //The depths
-            //Banishing Topaz
+            Insert(GetModel("Banishing Topaz", (int)Versions.Depths, 5));
 
             //The nameless
-            //Leeching Agate
+            Insert(GetModel("Leeching Agate", (int)Versions.Nameless, 3));
+
+            //New Age
+            //Into the Wild (NA)
+            //The Ancients (NA)
+            //Shattered Dreams (NA)
 
             Console.WriteLine("Insert gems rows");
         }
